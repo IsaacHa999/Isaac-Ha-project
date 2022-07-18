@@ -64,5 +64,11 @@ class Flyable:
         print("{}: {} 방향으로 날아갑니다. [속도 {}]".\
             format(name, location, self.flying_speed))
         
+class flyableAttackUnit(AttackUnit, flyable):
+    def __init__(self, name, hp, damage, flying_speed):
+        AttackUNit.__init__(self, name, hp, damage)
+        flyable__inti__(self, flying_speed)
+        
+        
  
 
