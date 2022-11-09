@@ -1,7 +1,7 @@
 # 조상클래스 덩의
 class Disk(object):
-    __capacity = 0
-    __rpm =0
+    __capacity = 100
+    __rpm =100
     
     def __init__(self, capacity, rpm):
         self.__capacity = capacity

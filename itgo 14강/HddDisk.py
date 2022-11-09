@@ -5,7 +5,7 @@ class HddDisk(Disk):
     __rpm = 0
     
     def __init__(self, capacity, rpm):
-        Disk.__init__(self, capacity, rpm)
+        Disk.__init__(self, 10, 50)
         self.__capacity = capacity
         self.__rpm = rpm
 
@@ -16,5 +16,6 @@ class HddDisk(Disk):
         return self.__rpm
 
     def showPrint(self):
-        return "HDD 디스크의 용량은 " + str(self.__capacity) + "GB 이며" \
-            "RPM은" + str(self.__rpm) + "입니다." 
+        return "HDD 디스크의 용량은 " + str(super().getCapacity()) + "GB이며 " \
+            "RPM은 " + str(super().getRpm()) + "입니다." 
+            
