@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+h1 {
+    margin: 0;
+    width: fit-content;
+    position: relative;
+    background: linear-gradient(to right, #fbcac9 0%, #8ca6ce 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
