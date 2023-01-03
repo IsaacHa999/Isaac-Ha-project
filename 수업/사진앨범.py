@@ -35,7 +35,7 @@ window.title("사진 앨범 보기")
 btnPrev = Button(window, text= "<<이전", command=clickPrev)
 btnNext = Button(window, text= "이전>>", command=clickNext)
 
-photo = PhotoImage(file = "GIF/"+fnameList[0])
+photo = PhotoImage(file = "GIF/"+fnameList[0])   #D:\coding\수업\GIF\jeju1.gif  
 pLabel = Label(window, image = photo)
 
 btnPrev.place(x= 250, y= 10)
