@@ -1,0 +1,76 @@
+1번
+재귀함수 호출수 : 40730022147
+50번째값: 12586269025
+피보나치 재귀함수 실행시간: 148초
+
+#include <stdio.h>
+#include <time.h>
+
+unsigned long long N;
+unsigned long long fibo(int n);
+
+int main()
+{
+    clock_t start, end, diff, ex;
+    start = clock();
+
+    unsigned long long num = fibo(50);
+
+    printf("재귀함수 호출수 : %llu\n", N);
+    printf("fibo값: %llu\n", num);
+
+    end = clock();
+    diff = end - start;
+    ex = diff/CLOCKS_PER_SEC;
+
+    printf(" 실행시간: %ld\n", ex);
+    return 0;
+}
+
+unsigned long long fibo(int n)
+{
+    N++;
+
+    if (n <= 1)
+        return n;
+    else
+        return (fibo(n-1) + fibo(n-2));
+}
+~            
+
+2번
+void re_bin_num(int n)
+{
+    int num = n;
+    if (n == 0 )
+    {
+        printf("%d", 0);
+    }
+    else
+    {
+        n = n / 2;
+        re_bin_num(n);
+
+        printf("%d",num % 2 );
+    }
+}
+
+3번
+int r_sum(int num)
+{
+    if(num == 0)
+    {
+        return 0;
+    }
+    else
+        return num + r_sum(num -1);
+}
+
+4번
+unsigned long long power_of_2(int n)
+{
+    if (n == 0 )
+        return 1;
+    else
+        return 2 * power_of_2(n-1);
+}

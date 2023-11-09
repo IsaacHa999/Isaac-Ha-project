@@ -1,0 +1,1053 @@
+<공부순서>
+ppt를 txt로 정리한다
+수업메모와 책에서 부족한 내용울 txt에 채워넣는다
+txt를 외운다
+ppt를 예제 중심으로 본다
+
+시험대비 : 예제 잘보기
+수식표현 가독성. 자유도 있다.
+암기중요 X
+이해중요 O
+키워드 중심
+
+
+ppt 한정자 적용 예 2가지중에 한개 중간나옴
+컴퓨터에서의 변수가 수학이랑 다른점 : 예외(exeption)가 있다.
+
+어떤 추론규칙에 해당하는지.
+exercise X. 앞의 연습문제
+
+교수님이 소개한거랑 비슷한 example 몇개
+
+임의의 : 전체대상. 모두. arbitrary. (for some이 아니다)
+
+한정자 추론규칙 예시
+
+모순이 꼭 p:T, q:F 일 필요는 X.
+
+도메인 : 서비스를 제공해주는 범위.
+서비스대상, 서비스내용, 서비스방법 등 다양한 내용이 있어야 함.
+이거를 구체적으로 설정하자.
+
+집합을 배우는 이유 : 모델링 배우는 이유.
+    저번에 도메인.
+    who, what, how를 명확히.
+    요구사항도?
+
+행렬 쓰는 이유 : 쉽게 표현.
+컴퓨터가 알아먹기 쉽다.
+선형변환, 캐시메모리에서 행렬연산 활용함.
+
+튜플 = 순서가 가미된 집합
+generalized union
+중간고사에 나옴.
+generalized intersection
+행렬 : 기본 operation.
+[m, k] [k, m] = [m, n]
+boolean product
+전치 (index가 뒤바뀜)
+main diagonal
+off diagonal
+행렬을 관계표현수단으로 사용.
+transpose.
+뒤집어도 동일.
+0-1 matrix
+bool 연산
+= is equal to.
+x := a + 1  x를 a+1로 정의
+===, <=> is equivalent to . 동등, 대등, 동치, 합동
+
+main에서 실행되는 함수도 알고리즘. (일련의 흐름이 있음)
+함수 안도 알고리즘.
+범위가 넓다.
+
+linear : 정렬 안돼도 ㄱㅊ
+binary : 정렬 돼야
+둘의 차이.
+
+binary에서
+midpoint를 찾는 게 핵심.
+끝까지 가야 된다.
+하나 남을 때까지 분할.
+midpoint가 바닥인 이유 : 내맘
+
+bubble : 데이터 많으면 비효율적.
+비교횟수 많아서.
+
+
+
+
+<질문한거>
+컴퓨터 수학을 배우는 이유?
+명제함수가 뭘로 이루어져있나?
+도메인의 정의
+추론 규칙의 정의가 뭐냐? : 어떤 명제가 참인지를 증명할 수 있게 하는 규칙
+집합을 배우는 이유? 모델링을 위해
+행렬을 배우는 이유?
+
+<선우가준거>
+추론규칙이란?
+어떤 명제가 참인지를 증명할 수 있게 하는 규칙
+가정(참인 명제)을 통해 다른 명제를 이끌어내는 것
+집합을 사용하는 이유?
+모델링을 위해(빠른 실행, 컴퓨터가 알기 쉽게, 정리와 구성)
+
+1.1 명제논리 propositional logic
+    논리 규칙 (The rules of logic) : it specify the meaning of mathematical statements.
+        the rules of logic give precise meaning to mathematical arguments.
+        these rules are used to distinguish between valid and invalid mathematical arguments.
+        수학적 진술의 의미를 정확히 표현하려면? 논리 규칙(The rules of logic)을 사용.
+        논리규칙들을 사용하여 수학적 논증이 정당한지, 정당하지 않은지를 구분
+    논리 (logic)
+        논리란 수학적 표현의 의미를 정확하게 기술할 수 있게 함.
+        수학적 추론을 이해하는데 이용.
+        컴퓨터 회로 설계, 프로그램 작성, 프로그램 정확성 검증 등에 활용.
+    명제 (proposition) : 참 또는 거짓을 판정할 수 있는 선언적 문장
+        a proposition is a declarative sentences that is either true or false, but not both.
+    atomic proposition. :
+        propositions that cannot be expressed in terms of simpler propositions
+        are called atomic proposition.
+    복합명제 (compound proposition) : 하나 또는 여러 명제를 조합하여 새로운 수학적 명제를 만들 수 있음
+    논리 연산자 (logical operator) 혹은 접속사 (connective) : 복합명제를 만들 때 사용하는 연산자
+        논리 연산자는 명제 연산자 (propositional operator) 혹은 불리언 연산자 (Boolean operator) 라고도 함
+        피연산자 (operand) 로서 명제 혹은 진리 값 (truth value)을 취함
+        many mathematical statements are constructed by combining one or more propositions.
+        new propositions, called compound propositions, are formed from\
+        existing propositions using logical operators.
+    논리 연산자 (logical operator)
+        Negation operator 부정 연산자 : “It is not the case that p”
+        Conjunction operator 논리곱 연산자 : “p and q”
+        Disjunction operator 논리합 연산자 : “p or q”
+        Exclusize-OR operator 배타적 OR 연산자 : “p exclusive-or q”. "either A, or B (but not both!)."
+        Implication operator 함축 연산자 : a conditional statement is also called an implication.
+            “p->q”
+            p implies q : p는 q를 함축한다
+            If p, then q or if p, q : p이면 q이다
+            p only if q : q일 경우에만 p이다
+            p is sufficient for q
+            q is necessary for p
+            q follows from p : p로부터 q가 귀결된다
+            역(converse) : q-> p
+            이(inverse) : !p-> !q
+            대우(contrapositive) : !q-> !p
+        Biconditional operator 상호조건 연산자 : IFF - if and only if. “p↔q”. "A if and only if B"
+            p if and only if q.
+            p is necessary and sufficient for q.
+            q is necessary and sufficient for p
+    논리 연산자의 우선순위(precedence) : 1 not 2 and 3 or 4 if 5 iff
+        순서를 명확하게 하기 위하여 괄호 사용.
+    bit
+        binary digit(이진수)에서 따온 단어임.
+        비트는 1(true)과 0(false)의 값을 가짐
+        True 혹은 false를 값으로 갖는 변수(variable)를 Boolean variable이라 함
+        bitwise OR, AND, XOR 도 있다.
+
+1.2 applications of propositional logic (다루지 않음)
+
+1.3 명제의 동치 (propositional equivalence)
+    compound proposition
+        an expression formed from propositional variables using logical operators, such as p ^ q
+        주어진 복합 명제를 보다 간소화하거나 해결하기 쉬운 형태로 만들려면?
+        하나의 명제 표현을 동일한 진리 값을 갖는 다른 명제 표현으로 대체.
+        methods that produce propositions with the same truth value as a given compound proposition\
+        are used extensively in the construction of mathematical arguments.
+    a classification of compound propositions according to their possible truth values
+        항진 Tautology
+            복합명제를 구성하는 단위명제의 진리 값이 어떠한 값을 가진다 하여도
+            해당 복합명제가 항시 참인 경우
+            A compound proposition that is always true\
+            no matter what the truth values of its atomic propositions are.
+        모순 Contradiction
+            복합명제를 구성하는 단위명제의 진리 값이 어떠한 값을 가진다 하여도 해당 복합명제가 항시 거짓인 경우
+            A compound proposition that is always false\
+            no matter what the truth values of its atomic propositions are.
+        불확정명제 (contingency)
+            항진도 모순도 아닌 경우
+            A compound proposition that is neither a tautology nor a contradiction
+    논리적 동치 (logical equivalence)
+        compound propositions that have the same truth values in all possible cases
+        두 복합명제 p, q에 대하여 p ↔ q 가 항진명제이면, p와 q는 논리적으로 동치이다.
+        표기법: p ≡ q or p ⇔ q
+            ⟺은 logical connective(논리 접속사 = 논리 연산자)가 아니고,
+            (p ⟺ q) 는 복합명제가 아니다.
+            (p ⟺ q) 는 p ↔ q가 항진명제라는 statement이다.
+        Truth Table을 이용한 동치 판정 방법이 있다.
+            N개의 단위 명제로 구성된 경우, 2^N 개의 행이 필요-> too much space, too expensive
+        동치 법칙(Equivalence Laws)을 활용하는 판정 방법도 있다.
+        동치 법칙(Equivalence Laws)
+            <기본 법칙>
+                p & T ⟺ p, p | F ⟺ p Identity laws (항등 법칙)
+                p | T ⟺ T, p & F ⟺ F Domination laws (지배 법칙)
+                p | p ⟺ p, p & p ⟺ p Idempotent laws (등멱 법칙)
+                ¬(¬p) ⟺ p Double negation law (이중 부정 법칙)
+                p | q ⟺ q | p
+                p & q ⟺ q & p Commutative laws (교환 법칙)
+                (p | q) | r ⟺ p | (q | r)
+                (p & q) & r ⟺ p & (q & r) Associative laws (결합 법칙)
+                p | (q & r) ⟺ (p | q) & (p | r)
+                p & (q | r) ⟺ (p & q) | (p & r) Distributive laws (분배 법칙)
+                ¬(p & q) ⟺ ¬p | ¬q
+                ¬(p | q) ⟺ ¬p & ¬q De Morgan’s laws (드 모르간 법칙)
+                p | (p & q) ⟺ p
+                p & (p | q) ⟺ p Absorption laws (흡수 법칙)
+                p | ¬p ⟺ T
+                p & ¬p ⟺ F Negation laws (부정 법칙)
+            <조건문을 포함한 논리적 동치>
+                p -> q ⟺ ¬p | q
+                p -> q ⟺ ¬q -> ¬p
+                p | q ⟺ ¬p -> q
+                p & q ⟺ ¬(p -> ¬q) [try it!]
+                (p -> q) & (p -> r) ⟺ p -> (q & r)
+                (p -> r) & (q -> r) ⟺ (p | q) -> r [try it!]
+                (p -> q) | (p -> r) ⟺ p -> (q | r)
+                (p -> r) | (q -> r) ⟺ (p & q) -> r
+            <상호조건을 포함한 논리적 동치>
+                p ↔ q ⟺ (p -> q) & (q -> p)
+                p ↔ q ⟺ ¬ p ↔ ¬ q [try it!] (대우 활용)
+                p ↔ q ⟺ (p & q) | (¬p & ¬q) [try it!] (※ 활용)
+                ¬( p ↔ q) ⟺ p ↔ ¬ q [try it!] (truth table 활용)
+                ※ p -> q ⟺ ¬ p | q
+            The Second Distributive laws (참고자료: 부울대수에서의 분배법칙)
+                제2법칙: A + BC = (A+B)(A+C)
+                일반적인 대수식에서는 성립되지 않음
+                T/F 값만 취하는 Boolean Algebra에서는 성립
+
+1.4 술어와 한정기호 (predicate and quantifiers)
+    명제 함수 (propositional function) : P(x) : x is greater that 3
+        변수 (variable) : x : x - subject of the statement (in this ex?)
+        술어 (predicate) : p : is greater that 3 - property that the subject of the statement can have.
+        "x > 3." these statement is neither true nor false when the values of the variables are not specified.
+        once a value has been assigned to the variable x,\
+        this statement P(x) becomes a proposition and has a truth value.
+        a statement of the form P(x1, x2, ..., xn) is the value of the propositional function P\
+        at the n-tuple (x1, ..), and P is also called an n-place predicate or n-ary predicate.
+        일반적으로 n개의 변수 x1, x2, x3, ..., xn을 포함하는 명제 함수는 P(x1, x2, x3, ..., xn) 으로 표기한다.
+        P(x1, x2, x3, ..., xn) 형태의 문장은 명제함수 P의 n-튜플(x1, x2, x3, ..., xn)에서의 값이며,
+        P를 n-변수 술어(n-place predicate) 또는 n-항 술어(n-ary predicate)이라고도 한다.
+    predicate logic
+        can be used to express the meaning of a wide range of statements in mathematics and computer science\
+        in ways that permit us to reason and explore relationships between objects.
+    한정 기호 (quantifiers)
+        creates a proposition from a propositional function.
+        명제 함수를 명제로 만드는 방법
+        변수에 특정 값을 할당
+        한정(quantification)을 적용
+        (1) 변수에 특정 값을 할당하는 방법 (P(x) = “x > 3”)
+            만일 x = 4라면 P(x)는 true가 되고, x = 2라면 P(x)는 false가 된다.
+        (2) Quantification을 적용하는 방법 (P(x) = “x > 3”)
+            x의 정의역(domain)이 “4 이상인 모든 실수”라면, P(x)는 true가 된다.
+     정의역 또는 논의영역
+        The collection of values that a variable x can take is called\
+        x’s domain or universal(or domain) of discourse.
+    전칭 한정 (Universal Quantifier) ∀
+        tells us that a predicate is true for every element under consideration
+        P(x)의 UQ란 “정의역(domain)에 속하는 x의 모든 값에 대하여 P(x)이다.”라는 명제임
+        the universal quantification of P(x) is the proposition\
+        "P(x) for all values of x in the domain."
+        읽기: “for all x P(x)” 혹은 “for every x P(x)”
+        임의의 : 전체대상. 모두. arbitrary. (for some이 아니다)
+        Domain의 모든 값을 x1, x2, ..., xn으로 나열할 수 있다면, ∀xP(x)는 다음과 동일
+            P(x1) & P(x2) & .... & P(xn)
+        반례(counterexample)
+            P(x)가 명제 함수라 할 때, ∀xP(x)가 거짓임을 보이기 위해서는\
+            domain에 속하는 값 중 단지 하나의 값이라도 P(x)를 거짓으로 만드는 예를 보이면 된다.
+            이와 같이 P(x)를 거짓으로 만드는 예를 반례(counterexample)이라 한다.
+            an element for whch P(x) is false if called a counterexample of ∀xP(x).
+    존재 한정 (Existential Quantifier) ∃
+        tells us that there is one or more element under consideration for which the predicate is true.
+        P(x)의 EQ란 “정의역(domain)에 속하는 적어도 하나의 값에 x대하여 P(x)이다.”라는 명제임
+        the existential quantification of P(x) is the proposition\
+        "there exists an element x in the domain such that P(x)."
+        읽기: “for some x, P(x)” 혹은 “at least one x such that P(x)”
+        Domain의 모든 값을 x1, x2, ..., xn으로 나열할 수 있다면, xP(x)는 다음과 동일
+            P(x1) | P(x2) | .... | P(xn)
+    P(x)의 한정자가 true / false 일 때
+        ∀xP(x)가 / true : P(x) is true for every x. / false :  There is an x for which P(x) is false.
+        ∃xP(x)가 / true : There is an x for which P(x) is true. / false : P(x) is false for every x.
+    유일한정기호(The Uniqueness Quantifier ∃! or ∃₁)
+        "there exists a unique x such that P(x) is true."
+        "there is exactly one."
+        "there is one and only one."
+    구속변수(Binding Variables)
+        구속 변수 (Binding variable) : 변수 x에 quantifier가 적용되거나 특정 값이 할당되는 경우
+        자유 변수 (free variable) : 변수 x에 quantifier가 적용되지 않거나 특정 값이 할당되지 않는 경우
+        Quantifier의 범위(scope) : Quantifier가 적용되는 부분 : 뒤의 항 하나만
+    ppt 한정자 적용 예 2가지중에 한개 중간나옴
+
+1.5 중첩된 한정기호 (nested quantifiers)
+    어떤 한정기호 범위 안에 모든 것은 명제함수로 볼 수 있음
+    Note that everything within the scope of a quantifier can be thought of as a propositional function.
+    Order of Quantifiers
+        앞부터 해석 시작.
+        ∀x와 ∀y /  ∃x와 ∃y 의 순서는 진리 값에 영향을 주지 않음
+        ∀x와 ∃y / ∃x와 ∀y 의 순서는 진리 값에 영향을 줌
+    Useful Equivalence Laws (remind!)
+        Negating Quantified Expressions : 우선순위대로 괄호가 있다고 생각하고 그대로 하면 된다.
+            ∀xP(x) ⟺ ¬∃x¬P(x)
+            ∃xP(x) ⟺ ¬∀x¬P(x)
+            상기 두 표현 식은 앞서 소개한 Quantifier 정의를 이용해 증명이 가능(try it!)
+            Quantifier의 정의:
+                ∀xP(x) ⟺ P(x1) & P(x2) & .... & P(xn)
+                ∃xP(x) ⟺ P(x1) | P(x2) | .... | P(xn)
+        ∀x(P(x) & Q(x)) ⟺ (∀xP(x)) & (∀xQ(x))
+        ∃x(P(x) | Q(x)) ⟺ (∃xP(x)) | (∃xQ(x))
+            상기 표현 식 역시 Quantifier 정의를 이용해 증명이 가능(try it!)
+
+1.6 추론 규칙 (rule of inference) -> 여기부터 책 봐야
+    Methods of Proof
+        수학적 증명을 위한 복합명제(compound proposition)를 다루는 논증
+        명제 논리에 적용될 수 있는 추론규칙(rules of inference)
+    Importance of proof (Methods of Proof)
+        Proof in Math
+            수학적 문장의 진실성을 정밀(엄격)하고 부정할 수 없도록 설명(규명)하는\
+            정확(correct: 합리-논리적으로 유효한)하고 완전(complete: 명확하고 상세한)한 기술(논리적 주장)
+            A correct (well-reasoned, logically valid) and complete (clear,detailed) argument\
+            that rigorously and undeniably establishes the truth of a mathematical statement
+        Basics in proof
+            정확성: Correctness prevents us from fooling ourselves.
+            완전성: Completeness allows anyone to verify the result.
+        학문의 많은 분야에서, 논리적이고 정확한 의사교환(clear communication)을 위해 사용
+        수학 분야의 기본적인 행동(연구)은 흥미롭고 밝혀지지 않은 많은 정리(theorem)를 증명을 통해 발견하는 것
+        정리의 증명은 프로그램 검증(program verification), 컴퓨터 보안,\
+        자동화된 추론 시스템(automated reasoning system) 등에서 사용
+        자연과학, 공학, 경영학 및 다른 학문분야와 학제적 연구 확대
+    정리(theorem)
+        참(true)으로 밝혀진 명제
+        A statement that has been proven to be true.
+        once we prove a mathematical statement is true, we call it a theorem.
+    공리(axiom, postulates)
+        증명된 정리 혹은 증명하고자 하는 정리의 전제들(가정/명제)
+        이전에 이미 증명된 증명이 불필요한 정리들을 포함
+        Assumptions (often unproven) defining the structures about which we are reasoning
+    추론 규칙(rules of inference)
+        논리적으로 유효한 주장(logically valid deductions)을 사용하여,
+        가정을 결론으로 이끌어가는 증명의 과정
+        Patterns of logically valid deductions from hypotheses to conclusions
+    보조정리(lemma)
+        수학에서 이미 증명된 명제로서 그 자체가 중시되기보다 다른 더 중대한 결과를 증명하는 디딤돌로 사용되는 명제
+        a lemma (plural lemmas or lemmata) is a generally minor, proven proposition which is\
+        used as a stepping stone to a larger result. For that reason, it is also known as a\
+        "helping theorem" or an "auxiliary theorem".
+        A minor theorem used as a stepping-stone to proving a major theorem.
+        다른 정리를 증명하는데 사용하는 간단한 정리
+        “복잡한 내용이 정리이고, 간단한 내용이 보조정리”를 의미하는 것은 아님에 유의!
+    따름정리(corollary)
+        In mathematics, a corollary is a theorem connected by a short proof to an existing theorem.
+        어떤 정리가 증명되면, 이에 의하여 직접적으로 귀결(자연스럽게 증명)되는 정리
+        A minor theorem proved as an easy consequence of a major theorem.
+    가설(conjecture)
+        어떤 부분적 증거나 휴리스틱한 논증, 또는 전문가의 직관에 근거한 참이라고 주장되어 지는 문장(명제)
+        증명되지는 않았지만 참으로 믿어지는 명제
+        A statement whose truth values has not been proven.
+        (A conjecture may be widely believed to be true, regardless.)
+        조건문 : 가설 -> 결론
+    이론(theory)
+        주어진 공리(axiom)로부터 증명이 가능한 모든 정리(theorem)의 집합
+        The set of all theorems that can be proven from a given set of axioms.
+    공리가 기본이 되어 정리가 만들어지고,
+    정리가 기본이 되어 이론을 만들어냄.
+    추론 규칙
+        주어진 가정(antecedent)이 참(true)일 때, 결론(consequent)이 참이라는 패턴
+        "p이면 q이다." 에서 p(가정)가 참이면, q(결론)은 참이 된다.
+        추론 규칙의 표기
+            antecedent 1
+            antecedent 2, ... (가정)
+            _________________
+            ∴ consequent (결론)
+            (∴)은 “therefore”를 의미
+        각 추론 규칙은 “항진명제(tautology)인 조건문(conditional statement)”에 해당함
+        위의 표기에 해당하는 tautology는 “((ant.1 & ant.2 & ... ) -> con.”이다.
+    Useful rules of inference
+        p -> (p | q) Addition (가산 논법)
+        (p & q) -> p Simplification (단순화 논법)
+        ((p) & (q)) -> (p & q) Conjunction (논리곱 논법)
+        (p & (p -> q)) -> q Modus ponens (긍정 논법) (the mode of affirming)
+        (¬q ^ (p -> q)) -> ¬p Modus tollens (부정 논법) (the mode of denying)
+        ((p -> q) & (q -> r)) -> (p  r) Hypothetical syllogism (가설적 삼단 논법)
+        ((p | q) & ¬p) -> q Disjunctive syllogism (논리합 삼단 논법)
+        ((p | q) & (¬p | r)) -> (q | r) Resolution (용해법)
+    Formal Proof (형식적증명)
+        주어진 가정(antecedent)에 기반하여 추론 규칙을 적용한 일련의 단계(step)를 거쳐서\
+        결론(consequent)을 도출하는 과정
+        A formal proof of a conclusion C, given antecedents p1, p2, ..., pn consists of\
+        a sequence of steps, each of which applies some inference rule\
+        to antecedents or to previously proven statements to yield a new true statement (the consequent).
+        증명은 주어진 모든 가정이 true일 때 결론이 true임을 보이는 과정
+        A proof demonstrates that if the antecedents are true, then the conclusion is true.
+    Inference Rules for Quantifiers
+    Quantifier를 포함하는 추론 규칙
+        전칭 예시화(Universal instantiation) : ∀xP(x) -> P(c)
+            ∀xP(x)가 주어졌을 때, ∀xP(x)이 true라면, domain에 속하는 임의의 구성원(member)
+            c에 대하여 P(c)가 true임을 보이는데 사용되는 추론 규칙
+        전칭 일반화(Universal generalization) : P(c) for an arbitrary c -> ∀xP(x) 
+            ∀xP(x)가 주어졌을 때, domain에 속하는 모든 구성원 c에 대해서 P(c)가 true이면,
+            ∀xP(x)가 true임을 보일 때 사용되는 추론 규칙
+        존재 예시화(Existential instantiation) : ∃xP(x) -> P(c) for some c
+            ∃xP(x)가 주어졌을 때, ∃xP(x)가 true라면, domain안에 P(c)를 true로 하는 어떤 원소 c가
+            적어도 하나 이상 존재한다는 것을 나타내는 추론 규칙
+        존재 일반화(Existential generalization) : P(c) for an some c -> ∃xP(x) 
+            ∃xP(x)가 주어졌을 때, 특정 값(요소) c에 대해서 P(c)가 true이면,
+            ∃xP(x)이 true라는 추론 규칙
+    봐야할것
+        어떤 추론규칙에 해당하는지. exercise X. 앞의 연습문제
+        교수님이 소개한거랑 비슷한 example 몇개
+        한정자 추론규칙 예시
+
+1.7 Introduction of Proofs (증명의 소개)
+1.8 Proof Methods and Strategy (증명의 방법과 전략)
+    증명(proof)의 소개
+        증명: 수학적 진술의 참(truth)을 입증하는 정당한 논증
+        하나의 결론으로 끝나는 일련의 진술
+        to understand mathematics, we must understand what makes up a correct mathematical argument,\
+        that is a proof.
+    조건문(conditional statement) p  q의 증명을 위하여, 다음 방법들을 사용
+        Direct proof: Assume p is true, and prove q.
+            Conditional statement p  q를 증명하기 위하여, p가 true라 가정하고
+            여러 규칙과 기존에 true로 증명된 정리를 사용하여 q가 true임을 증명한다.
+        Indirect proof: Assume ¬q, and prove ¬p. (대우의 증명에 해당)
+            Known as proof by contraposition ( p -> q ⟺ ¬q -> ¬p )
+            Conditional statement p -> q 대신 이의 대우인 ¬q -> ¬p를 증명한다.
+        Vacuous proof: Prove ¬p by itself. (가정이 false임을 증명하면, pq는 true)
+            가정(p)이 false임을 보임으로서, p  q가 true임을 증명한다
+        Trivial proof: Prove q by itself. (결론이 항상 true임을 증명)
+            Conditional statement p -> q에서, 결론(q)이 trivial하게 true임을 증명한다.
+        Proof by Contradiction
+            A method for proving p. (p를 증명하고자 하는 방법)
+            Assume ¬p, and prove some proposition q is contradiction (i.e., q is always false.)
+            (p를 부정하면 항시 거짓이 되는 명제가 있음을 보임. 즉, ¬p->F을 보임)
+            Then, ¬p->F, which is only true if ¬p=F
+            (¬p->F 이 참이 되기 위해서는 ¬p가 거짓이어야 한다.)
+            Thus, p is true. (따라서, p는 참이 된다.)
+            주어진 가정(p)을 부정(false)했을 때 항상 false가 되는 명제 q가 있음을 보이면,
+            p의 가정이 잘못되었으므로 p는 true가 된다.
+            (가정을 부정했을 때, 결론이 항시 거짓이 되면, “가정을 부정”한 것이 잘못된 것이다.
+            따라서, 가정은 참이다.)
+            모순이 꼭 p:T, q:F 일 필요는 X.
+        Proof by cases:
+            To prove (p1 | p2 | .... | pn) -> q,
+            prove ((p1 -> q) & (p2 -> q) & .... & (pn -> q))
+            Theorem에 나오는 모든 가능한 경우를 다 고려해야 함
+            가정이 논리합으로 구성된 (p1 | p2 | .... | pn) -> q 형태를 증명하기 위하여,\
+            다음과 같은 tautology를 사용한다.
+            [(p1 | p2 | .... | pn) -> q] ⟺ [(p1 -> q) & (p2 -> q) & .... & (pn -> q)]
+        Proof by Equivalence
+            Biconditional statement p ↔ q (“p if and only if q”)을
+            증명하기 위해서는 다음과 같은 tautology를 사용한다.
+            (p ↔ q) ⟺ ((p -> q) & (q -> p))
+            즉, (p -> q)를 증명하고 (q -> p)를 증명함으로써, (p ↔ q)를 증명함
+        존재 증명(existence proof)
+            증명하고자 하는 문장에 ∃xP(x) 형태의 quantifier(∃x)/predicate(P)가 포함된 경우
+            If the proof of a statement of the form ∃xP(x) is called an existence proof.
+            ∃xP(x)의 존재 증명은 증인(witness)이라고 하는 P(a)가 참인 어떤 원소 a를 구함으로써 완료할 수 있음
+        유일성 증명(uniqueness proof)
+            유일하게 하나의 값(요소)만이 주어진 특성을 만족하는 경우를 “유일성”이라하고,\
+            이의 증명을 유일성 증명(uniqueness proof)이라 한다.
+            증명 과정
+                Existence: x가 주어진 특성을 가짐을 보인다.
+                Uniqueness: 만일 y  x이면, y는 주어진 특성을 갖지 않음을 보인다.
+            “P(x)를 만족하는 x가 유일하게 하나 존재함”을 증명하는 과정은 다음 표현을 증명하는 것과 동일하다.
+                ∃x(P(x) & Ay(y != x -> ¬P(y)))
+    가설(Conjectures)
+        가설의 형식화
+            가능한 많은 형태의 증거에 기초하여 가설을 형식화함
+            기존 정리나 명제를 사용하여 원하는 가설을 만들어내거나,
+            직관이나 결과가 성립한다는 믿음에 기초하여 가설을 만들어 냄
+        가설의 증명
+            가설이 형식화되면 목표는 이를 증명하는 것
+            증명하면, 가설은 정리가 되고, 증명하지 못하면, 가설은 결국 가설로 남음
+        가설에 대한 반례
+            그럴듯한 가설을 제시하였는데, 이의 증명이 어려운 경우, 반례를 생각함
+            반례를 들 수 있으면, 그 가설은 false가 되어 정리가 되지 못함
+
+2.1 집합 (Sets)
+    도메인 : 서비스를 제공해주는 범위.
+        서비스대상, 서비스내용, 서비스방법 등 다양한 내용이 있어야 함.
+        이거를 구체적으로 설정하자.
+    집합을 배우는 이유 : 모델링 배우는 이유.
+        저번에 도메인.
+        who, what, how를 명확히.
+        요구사항도?
+    Basic discrete structure: Sets
+        집합의 개념 위에 관계, 조합, 그래프 등 다른 이산구조 개념이 정의됨.
+        멤버들 간의 유기적인 관계를 맺에서 하나의 시스템을 모델링하는 일련의 과정을 표현하기 위한 기본이 되는 내용.
+        We study the fundamental discrete structure on which all other discrete structures are built,\
+        namely, the set.
+        Sets are used to group objects together
+    두 집합은 여러 가지 방법으로 결합될 수 있음
+    Two, or more, sets can be combined in many different ways.
+    집합 (set)
+        집합(set)이란 순서를 고려하지 않고 중복을 고려하지 않는 객체(object)들의 모임
+        A set is a new type of structure, representing an unordered collection (group) of\
+        zero or more distinct (different) objects.
+        Basic notations for sets
+            For sets, we’ll use variables S, T, U, ...
+            원소 나열법 : We can denote a set S in writing by listing all of its elements in\
+                curly braces { and }: {a, b, c} is the set of whatever three objects are denoted by a, b, c.
+            조건 제시법 : Set builder notation: {x|P(x)} means the set of all x such that P(x).
+        Basic Properties of Sets
+            Sets are inherently unordered (순서가 중요치 않다!)
+                No matter what objects a, b, and c denote,
+                {a, b, c} = {a, c, b} = {b, a, c} = {b, c, a} = {c, a, b} = {c, b, a}.
+            All elements are distinct (unequal); multiple listings make no difference (중복은 의미가 없다!)
+                If a=b, then {a, b, c} = {a, c} = {b, c} = {a, a, b, a, b, c, c, c, c}.
+                This set contains at most two elements!
+        Definition of Set Equality
+            Two sets are declared to be equal if and only if they contain exactly the same elements
+            동일한 원소들로 이루어진 두 집합은 동일함
+            In particular, it does not matter how the set is defined or denoted
+            집합의 equality에서 정의나 표현은 중요하지 않음
+        Infinite Sets
+            Conceptually, sets may be infinite (i.e., not finite, without end, unending)
+            집합은 무한할 수 있음 (무한집합)
+        Symbols for some special infinite sets
+            N = {0, 1, 2, ...} The Natural numbers. (자연수의 집합)
+                자연수를 얘기할 땐 0이 애매함 따라서 다음과 같이 나눔.
+                    positive integer (0 미포함) : 자연수하면 보통 이거
+                    non negative integer (0 포함)
+            Z = {..., -2, -1, 0, 1, 2, ...} The Zntegers. (정수의 집합)
+            Z+ = {1, 2, 3, ...} The positive integers. (양의 정수의 집합)
+            Z- = 음의 정수의 집합
+            Q = {p/q | p∈Z, q∈Z, q∈0} The rational numbers. (유리수의 집합)
+            R = The Real numbers, such as 3.141592... (실수의 집합)
+        Infinite sets come in different sizes!
+            무한집합이라도 크기가 다를 수 있음
+        Venn Diagrams 으로 집합을 표현 가능.
+        Elements or Members
+            x ∈ S (“x is in S”) is the proposition that\
+            object x is an element or member of set S. (x는 S의 원소이다.)
+            Can define set equality in terms of ∈ relation:
+                (원소 기호를 사용한 두 집합의 동치 증명)
+                S = T <-> Ax(x∈S → x∈T) & Ax(x∈T → x∈S) <-> Ax(x∈S <-> x∈T)
+                “Two sets are equal iff they have all the same members.”
+            x ∉ S <=> !(x ∈ S) <=> “x is not in S” (x는 S의 원소가 아니다.)
+        Empty Set Ø
+            (“null”, “the empty set”) is the unique set that contains no elements.
+            (공집합(Ø)이란 원소가 하나도 없는 유일한 집합이다.)
+            Ø = {} = {x | False }
+            Ø != {Ø}
+        Subsets and Supersets
+            S ⊆ T (“S is a subset of T”) means that every element of S is also an element of T.
+            S의 모든 원소는 T의 원소
+            S ⊆ T <=> Ax (x∈S → x∈T)
+            Ø ⊆ S, S ⊆ S
+            모든 집합은 공집합과 자기 자신을 부분집합으로 가짐
+            S ⊇ T (“S is a superset of T”) means T ⊆ S. (모집합)
+            Note S = T <=> (S ⊆ T) & (S ⊇ T)
+            S ⊄(아래에 작대기도 있음) T means !(S ⊆ T), i.e. Ex(x∈S & x∉T)
+        Proper Subsets & Supersets
+            S ⊂ T (“S is a proper subset of T”) means that S ⊂ T but S ≠ T.
+            Similar for S ⊃ T.
+            S가 T에 포함되나 S ≠ T인 것을 확실히 하고 싶을 때, S  T 표기하고, S를 T의 진부분집합이라 한다.
+            Remark: S ⊂ T means that S is a subset of T or S=T
+        Sets are Objects, Too!
+            The objects that are elements of a set may themselves be sets.
+            집합 자체도 객체가 될 수 있고, 따라서 집합도 다른 집합의 원소가 될 수 있음
+            Note that 1 ≠ {1} ≠ {{1}}
+        Cardinality and Finiteness
+            |S| (read “the cardinality of S”) is a measure of how many different elements S has.
+            |S|는 집합 S의 원소 중 서로 다른 값을 가지는 원소의 개수 (집합S의 크기)
+            |{{1,2,3},{4,5}}| = 2
+            If |S|∈N, then we say S is finite.
+            Otherwise, we say S is infinite.
+            What are some infinite sets we’ve seen?
+        Power Sets
+            The power set P(S) of a set S is the set of all subsets of S.
+            P(S) = {x | x ⊆ S} (P(S)는 집합 S의 모든 부분집합을 원소로 하는 집합 - 멱집합)
+            P({a,b}) = {Ø, {a}, {b}, {a,b}}.
+            P(Ø) = {Ø}, P({Ø}) = {Ø, {Ø}}.
+            Sometimes P(S) is written 2^S.
+            Note that for finite S, |P(S)| = |2^S|= 2^|S|.
+            It turns out that |P(N)| > |N|.
+            There are different sizes of infinite sets!
+            (자연수 집합의 power set의 크기가 자연수 집합보다 크다?!)
+        Ordered n-tuples
+            Ordered n-tuples are like sets, except that duplicates matter, and the order makes a difference.
+            Ordered n-tuple에서는 원소의 중복이 허용되고, 순서도 차이를 나타냄
+            For n∈N, an ordered n-tuple or a sequence of length n is\
+            written (a1, a2, ..., an). The first element is a1, etc.
+            Note (1, 2) ≠ (2, 1) ≠ (2, 1, 1).
+            Empty sequence, singlets, pairs, triples, quadruples, ..., n-tuples.
+        Cartesian Products
+            or sets A, B, their Cartesian product (데카르트 곱)
+            A × B = {(a, b) | a∈A & b∈B }.
+            (a가 A의 원소이고 b가 B의 원소인 모든 순서쌍(pair) (a, b)의 집합)
+            E.g. {a,b} × {1,2} = {(a,1),(a,2),(b,1),(b,2)}
+            Note that for finite A, B, |A×B|=|A||B|.
+            Note that the Cartesian product is not commutative:
+            !∀AB: A×B=B×A (Cartesian product는 교환법칙이 성립하지 않음)
+            E.g. {a,b} × {1,2} ≠ {1,2} × {a,b} = {(1,a),(1,b),(2,a),(2,b)}
+            A1 × A2 × ... × An = {(a1, a2, ..., an) | ai∈Ai, i = 1, 2, 3, ..., n}
+            집합 A1, A2, ... An 의 데카르트곱은 A1 × A2 × ... × An로 표기하고,
+            (ordered n-tuples)순서가 있는 n짝 (a1, a2, ..., an )의 집합이다.
+
+2.2 연산 (Set Operations)
+    Union Operator ∪ : 합집합
+        Formally, A∪B = {x | x∈A | x∈B}.
+        ∀A, B: (A∪B ⊇ A) & (A∪B ⊇ B)
+    intersection Operator ∩ : 교집합
+        Formally, A∩B = {x | x∈A & x∈B}.
+        ∀A, B: (A∩B ⊆ A) & (A∩B ⊆ B)
+    Disjointedness : 서로소
+        (교집합이 공집합이면 이들 두 집합은 서로 소라 한다.) (A∩B=Ø)
+    Inclusion-Exclusion Principle
+        |A∪B| = |A| + |B| − |A∩B| 중복 제거. (포함-배제 원리)
+    Set Difference : 차집합
+        Formally, A − B = {x | x∈A & x∉B}
+    Set Complements
+        The domain can itself be considered a set, call it U.
+        (정의역 자체도 집합이다.)
+        We say that for any set A⊆U, the complement of A, written A_b(A위에 작대기),
+        is the complement of A w.r.t. U, i.e., it is U−A.
+        Example: If U=N, {3, 5}_bar = {0, 1, 2, 4, 6, 7, ...}
+        An equivalent definition, when U is clear: A = {x | x∉A}_bar
+    Set Identities
+        A ∪ Ø = A
+        A ∩ U = A Identity laws (항등)
+        A ∪ U = U
+        A ∩ Ø = Ø Domination laws (지배)
+        A ∪ A = A
+        A ∩ A = A Idempotent laws (멱등)
+        (A)_b_b = A Double complement law (보원)
+        A ∪ B = B ∪ A
+        A ∩ B = B ∩ A Commutative laws (교환)
+        A ∪ (B ∪ C) = (A ∪ B) ∪ C
+        A ∩ (B ∩ C) = (A ∩ B) ∩ C Associative laws (결합)
+        A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)
+        A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) Distributive laws (분배)
+        (A ∪ B)_b = A_b ∩ B_b
+        (A ∩ B)_b = A_b ∪ B_b De Morgan’s laws (드모르간)
+        A ∪ (A ∩ B) = A
+        A ∩ (A ∪ B) = A Absorption laws (흡수)
+        A ∪ A_b = U
+        A ∩ A_b = Ø Complement laws (보수)
+    Proving Identity Sets (집합의 항등증명 방법)
+        To prove statements about sets, of the form A = B, here are three useful techniques.
+        Method 1: Prove A ⊆ B and B ⊆ A separately.
+        Method 2: Use set builder notation & logical equivalences. (조건 제시법과 논리적 동치 관계 활용)
+        Method 3: Use a membership table. (구성원 표를 사용)
+    Membership tables (구성원 표)
+        Just like truth tables for propositional logic. (명제의 진리표와 유사)
+        Columns for different set expressions. (열은 집합 표현을 나타냄)
+        Rows for all combinations of memberships in constituent sets.
+        Use “1” to indicate membership in the derived set, “0” for non-membership.
+        (행에는 집합의 원소이면 1, 아니면 0을 표시)
+        Prove equivalence with identical columns. (두 컬럼이 동일함을 보임)
+    Generalized Unions and Intersections
+        Since union & intersection are commutative and associative,
+        we can extend them from operating on ordered pairs of sets
+        (A, B) to operating on sequences of sets (A1, ..., An)
+        (합집합 및 교집합은 교환 및 결합법칙이 성립하므로, 두 집합에 대한 연산을 확장하여
+        세 개 이상의 집합에 대해서도 연산 적용이 가능함)
+    Generalized Union
+        Binary union operator: A∪B
+        n-ary union: A1∪A2∪...∪An = ((...((A1∪ A2) ∪...)∪ An) (grouping & order is irrelevant)
+        “Big U” notation: A1∪A2∪...∪An = i=1 U n Ai (시그마처럼, M모양대신 U)
+        Or for infinite sets of sets: A1∪A2∪...∪An∪... = i=1 U ∞ Ai
+    Generalized Intersection
+        Binary intersection operator: A∩B
+        n-ary intersection: A1∩A2∩...∩An = ((...((A1∩A2)∩...)∩An) (grouping & order is irrelevant)
+        “Big Arch” notation: A1∩A2∩...∩An = i=1 ∩ n Ai (시그마처럼, M모양대신 ∩)
+        Or for infinite sets of sets: A1∩A2∩...∩An... = i=1 ∩ ∞ Ai
+    Computer Representation of Sets
+        전체 집합 U가 유한집합이라 가정하고, U의 원소들을 a1, a2, ..., an과 같이 순서를 매긴다.
+        U의 부분집합 A를 길이 n의 비트열(bit string)로 표현
+        ith bit = 1 if ai∈A, 0 otherwise
+
+2.3 함수 (Functions)
+    Definition of Function (1/2)
+        From calculus, you are familiar with the concept of a real-valued function f,\
+        which assigns each number x∈R to a particular value y=f(x), where y∈R.
+        (대수학에서 이미 익숙한실수 집합에대한 함수로이해할수 있음)
+        But, the notion of a function can also be generalized to the concept of assigning elements of\
+        any set to elements of any set.
+        (함수의 개념은 비단 실수 집합이 아닌 임의의 집합들을 대상으로 일반화시킬 수 있음)
+    Definition: Let A and B be nonempty sets. For any sets A, B, we say that\
+    a function f from (or “mapping”) A to B (f:A→B) is a particular assignment of\
+    exactly one element f(x)∈B to each element x∈A.
+    We write f(a) = b if b is the unique element of B assigned by the function f to the element a of A.
+    Functions are sometimes called mappings (사상) or transformations (변환).
+    함수 f는 A의 원소 각각에 대해서 B의 원소를 단 하나만 대응시킴
+    Functions can be represented graphically in several ways
+        Like Venn diagrams, Bipartite Graph, Plot
+    Examples of Functions
+        A proposition can be viewed as a function from “situations” to truth values {T,F} (명제 함수)
+            A logic system called situation theory.
+            p=“It is raining.”; s=our situation here, now p(s)∈{T,F}
+        A propositional operator can be viewed as a function\
+        from ordered pairs of truth values to truth values: (명제 연산자)
+            |((F,T)) = T
+            →((T,F)) = F
+        A set operator such as , , can be viewed as a function from pairs of sets to sets.(집합 연산자)
+            Example: ∩({1,3},{3,4}) = {3}
+    Function Terminologies
+        If f:A→B, and f(a)=b (where aA & bB), then:
+            A is the domain of f. [정의역]
+            B is the codomain of f. [공역]
+            b is the image of a under f. [상]
+            a is a pre-image of b under f. [원상] (In general, b may have more than 1 pre-image.)
+            The range R⊆B of f is {b | Ea f(a)=b }. [치역]
+        The range of a function might not be its whole codomain.
+        (함수의 치역은 전체 공역이 아닐(다를) 수 있음)
+        The range is the particular set of values in the codomain that\
+        the function actually maps elements of the domain to.
+        (치역은 공역의 부분 집합으로서, 함수에 의해 실제 매핑이 일어난 원소의 집합임)
+    Function Operators (Example)
+        +, × (“plus”, “times”) are binary operators over R.
+        (Normal addition & multiplication.)
+        If f, g: R→R, then the followings hold: (정의)
+        (f + g):R→R, where (f + g)(x) = f(x) + g(x)
+        (f×g):R→R, where (f × g)(x) = f(x) × g(x)
+    Images of Sets under Functions
+        Given f:A→B, and S⊆A,
+        The image of S under f is simply the set of all images of the elements
+        of S. (S의 image는 S의 모든 원소의 image으로 구성된 B의 부분집합)
+        f(S) = {f(s) | s∈S} = {b | Es∈S(f(s)=b)}.
+        Note the range of f can be defined as simply the image of f’s domain!
+        (f의 치역은 f의 정의역에 대한 상(image)으로 정의할 수 있음)
+    One-to-One Functions
+        A function is one-to-one (1-1) or injective iff every element of its range has only 1 pre-image.
+        (치역의 모든 원소는 오직 하나의 역상(pre-image)를 가짐)
+        Formally: given f:A→B,
+        “x is injective” = (!Ex,y: x!=y & f(x)=f(y)).
+        Only one element of the domain is mapped to any given one element of the range.
+        (정의역의 한 원소는 치역의 한 원소에 대응)
+        Domain & range have same cardinality. What about codomain? (→ may be larger)
+        note that a function f is one-to-one if and only if f(a) != f(b) whenever a != b.
+        this way of expressing that f is one-to-one in obtained by taking the contrapositive of\
+        the implication in the definition.
+        Remark : We can express that f in one-to-one using quantifiers as AaAb(f(a) = f(b) -> a = b)
+        or equivalently AaAb(a!=b -> f(a)!=f(b)), where the universe of discourse is the domain of the function.
+    One-to-One Functions
+        Formally: given f:A→B,
+        “x is injective” = (!Ex,y: x!=y & f(x)=f(y))
+        = (Ax,y: !(x!=y) | !(f(x)=f(y)))
+        = (Ax,y: !(x!=y) | (f(x)!=f(y)))
+        = (Ax,y: (x!=y) → (f(x)!=f(y)))
+        = (Ax,y: (f(x)=f(y)) → (x=y))
+            P(x,y) = {Ax,y: x != y}
+            Q(x,y) = {Ax,y: f(x) != f(y)}
+            !P(x,y) | Q(x,y) ⇔ P(x,y) → Q(x,y)
+    Sufficient Conditions for 1-1ness
+        For functions f over numbers,
+        f is strictly (or monotonically) increasing iff x<y → f(x)<f(y) for all x,y in domain;
+        (strictly increasing function, 단조증가함수)
+        f is strictly (or monotonically) decreasing iff x<y → f(x)>f(y) for all x,y in domain;
+        (strictly decreasing function, 단조감소함수)
+        If f is either strictly increasing or strictly decreasing, then f is one-to-one. E.g. x3
+        Converse is not necessarily true. E.g. 1/x
+    Onto Functions
+        A function f:A→B is onto or surjective iff its range is equal to its codomain (Ab∈B, Ea∈A: f(a)=b).
+        (치역과 공역이 동일)
+        An onto function maps the set A onto (over, covering) the entirety of the set B,\
+        not just over a piece of it.
+        E.g., for domain & codomain R, x3 is onto, whereas x2 isn’t. (Why not?)
+    Bijection
+        A function f is a one-to-one correspondence, or a bijection, or reversible, or invertible,\
+        iff it is both one-to-one and onto.
+        (전사함수이면서 단사함수이면, 이를 전단사함수라 함)
+    Identity Functions
+        For any domain A, the identity function I:A→A (or IA) is the unique function such that Aa∈A: I(a)=a.
+        (항등함수는 정의역의 각 원소(a)를 자기 자신(I(a)=a)에 대응시키는 함수)
+        Some identity functions we’ve seen:
+            +ing 0, ·ing by 1
+            &ing with T, |ing with F
+            Uing with Ø, ning with U.
+        Note that the identity function is both one-to-one and onto (bijective).
+        (모든 원소에 대해 자기 자신을 대응시키므로 당연!)
+    Composite Operator
+        For functions g:A→B and f:B→C, there is a special operator called compose (“◦”).
+        It composes (creates) a new function out of f, g by applying f to the result of g.
+        (함수 g의 결과에 대해 함수 f를 적용함)
+        (f◦g):A→C, where (f◦g)(a) = f(g(a)). → 정의
+        Note g(a)∈B, so f(g(a)) is defined and ∈C.
+        Note that ◦ (like Cartesian x, but unlike +, &, U) is non-commuting.
+        (Generally, f◦g != g◦f.) (일반적으로, 교환법칙은 성립하지 않음)
+    Inverse Functions
+        For bijections f:A→B, there exists an inverse of f, written
+        f−1:B→A, which is the unique function such that f−1◦f=I.
+        (전단사함수 f에서 f(a) = b가 성립할 때, 함수 f의 역함수 f−1는 B의 모든 원소 b에 대해
+        A의 원소 a를 대응시키는 함수임)
+    Graphs of Functions
+        We can represent a function f:A→B as a set of ordered pairs {(a, f(a))| a∈A} called a graph.
+        (함수 f의 그래프는 (a, f(a))로 구성되는 순서쌍(pair)의 집합임)
+        Note that Aa, there is only 1 pair (a, f(a)).
+        For functions over numbers, we can represent an ordered pair (x, y) as a point on a plane.
+        A function is then drawn as a curve (set of points) with only one y for each x.
+        (수에 대한 함수인 경우, 함수를 평면상에 그릴 수 있음)
+    A Couple of Key Functions (floor functions / Ceiling functions)
+        In discrete math, we will frequently use the following functions over real numbers:
+        ⌊x⌋ (“floor of x”) is the largest (most positive) integer <= x.
+        (실수 x에 대해서, x와 같거나 x보다 작은 수 중에서 x에 가장 가까운 정수)
+        ⌈x⌉ (“ceiling of x”) is the smallest (most negative) integer >= x.
+        (실수 x에 대해서, x와 같거나 x보다 큰 수 중에서 x에 가장 가까운 정수)
+    Visualizing Floor & Ceiling Functions
+        Real numbers “fall to their floor” or “rise to their ceiling.”
+        Note that if x∉Z,
+            ⌊-x⌋ != −⌊x⌋
+            ⌈-x⌉ != −⌈x⌉
+        Note that if x∈Z,
+            ⌊x⌋ = ⌈x⌉ = x
+        Note that if x∈R,
+            ⌊-x⌋ = −⌈x⌉
+            ⌈-x⌉ = -⌊x⌋
+매트릭스
+    Matrices are useful discrete structures that can be used in many ways. For example, they are used to:
+        describe certain types of functions known as linear transformations (선형 변환) : 선형결합을 보존한다
+        직선 형태 : 예측 가능. (중첩의 원리)
+        Express which vertices of a graph are connected by edges (인접행렬로 그래프 나타내기)
+    In later chapters, we will see matrices used to build models of:
+        Transportation systems.
+        Communication networks.
+        Algorithms based on matrix models will be presented in later chapters.
+        Here we cover the aspect of matrix arithmetic that will be needed later
+    Matrix
+        Definition: A matrix is a rectangular array of numbers.
+        A matrix with m rows and n columns is called an m × n matrix.
+            The plural of matrix is matrices.
+            A matrix with the same number of rows as columns is called square.
+            Two matrices are equal if they have the same number of rows and the same number of columns\
+            and the corresponding entries in every position are equal.
+            3 x 2 matrix : 가로(row) 3줄 세로(column) 2줄
+        The ith row of A is the 1 × n matrix [ai1, ai2,...,ain].
+        The jth column of A is the m × 1 matrix
+        The (i,j)th element or entry of A is the element aij.
+        We can use A = [aij] to denote the matrix with its (i,j)th element equal to aij.
+    Matrix Arithmetic: Addition
+        Definition: Let A = [aij] and B = [bij] be m × n matrices.
+        The sum of A and B, denoted by A + B, is the m × n matrix that has aij + bij as its (i,j)th element.
+        In other words, A + B = [aij + bij].
+        Note that matrices of different sizes can not be added.
+    Matrix Multiplication
+        Definition: Let A be an m × k matrix and B be a k × n matrix.
+        The product of A and B, denoted by AB, is the m × n matrix\
+        that has its (i,j)th element equal to the sum of the products of the\
+        corresponding elements from the ith row of A and the jth column of B.
+        In other words, if AB = [cij] then cij = ai1b1j + ai2b2j + ... + akjb2j.
+        The product of two matrices is undefined when the number of columns in the first matrix is\
+        not the same as the number of rows in the second.
+        Matrix Multiplication is not Commutative. AB ≠ BA
+    Identity Matrix and Powers of Matrices
+        Definition: The identity matrix of order n is the m × n matrix
+        In = [Oij], where Oij = 1 if i = j and Oij = 0 if i≠j.
+        Powers of square matrices can be defined. When A is an n × n matrix, we have:
+            Asup0 = Isubn.  Asupr = AAA...A (r times)
+    Transposes of Matrices
+        Definition: Let A = [aij] be an m × n matrix. The transpose of A denoted by At ,\
+        is the n × m matrix obtained by interchanging the rows and columns of A.
+        If At = [bij], then bij = aji for i =1,2,...,n and j = 1,2, ...,m.
+    symmetric
+        Definition: A square matrix A is called symmetric if A = At.
+        Thus A = [aij] is symmetric if aij = aji for i and j with 1≤ i≤ n and 1≤ j≤ n.
+        Square matrices do not change when their rows and columns are interchanged.
+    Zero-One Matrices
+        Definition: A matrix all of whose entries are either 0 or 1 is called a zero-one matrix.
+        (These will be used in Chapters 9 and 10.)
+        Algorithms operating on discrete structures represented by zero-one matrices\
+        are based on Boolean arithmetic defined by the following Boolean operations.
+        Definition: Let A = [aij] and B = [bij] be an m x n zero-one matrices.
+            The join of A and B is the zero-one matrix with (i,j)th entry
+            aij ∨ bij. The join of A and B is denoted by A ∨ B.
+            The meet of A and B is the zero-one matrix with (i,j)th entry
+            aij ∧ bij. The meet of A and B is denoted by A ∧ B.
+    Boolean Product of Zero-One Matrices
+        Definition: Let A = [aij] be an m × k zero-one matrix and B = [bij] be a k × n zero-one matrix.
+        The Boolean product of A and B, denoted by A ⊙ B, is the m × n zero-one matrix with (i,j)th entry
+        cij = (ai1 ∧ b1j)∨ (ai2 ∧ b2j) ∨ ... ∨ (aik ∧ bkj).
+    Boolean Powers of Zero-One Matrices
+        Definition: Let A be a square zero-one matrix and let r be a positive integer.
+        The rth Boolean power of A is the Boolean product of r factors of A, denoted by Asup[r].
+        We define A[0] to be In. (A[0] = In)
+        (The Boolean product is well defined because the Boolean product of matrices is associative.)
+
+3.1 알고리즘 (Algorithms)
+    Algorithms
+        The foundation(기초) of computer programming.
+        Definition: An algorithm is a finite sequence of precise instructions for\
+        performing a computation or for solving a problem.
+        Most generally, an algorithm just means a definite procedure for performing some sort of task.
+        A computer program is simply a description of an algorithm in a language\
+        precise enough for a computer to understand.
+        We say that a program implements (or “is an implementation of”) its algorithm.
+    Programming Languages
+        Some common programming languages:
+            Newer: Java, C, C++, Visual Basic, JavaScript, Perl, Tcl, Pascal
+            Older: Fortran, Cobol, Lisp, Basic
+            Assembly languages, for low-level coding.
+        In this class we will use an informal, Pascal-like “pseudo-code” language.
+        You should know at least 1 real language!
+    Executing an Algorithm
+        When you start up a piece of software, we say\
+        the program or its algorithm are being run or executed by the computer.
+        (SW를 시작할 때, 우리는 프로그램 혹은 알고리즘을 실행한다(혹은 돌린다)라고 이야기한다.)
+        •Given a description of an algorithm, you can also execute it by hand(?),\
+        by working through all of its steps on paper.
+        (알고리즘이 있으면, 종이에 손으로 써 가면서 이를 수행할 수도 있다.)
+        Before ~WW II, “computer” meant a person whose job was to run algorithms!
+        (2차 대전 이전에, 컴퓨터는 알고리즘을 수행하는 사람을 의미했다!)
+    Algorithm Characteristics
+        Some important features of algorithms:
+            Input: Information or data that comes in.
+            Output: Information or data that goes out.
+            Definiteness: Precisely defined.
+                (명확함-확실함: 각 단계는 명확하게 정의되어야 한다.)
+            Correctness: Outputs correctly relate to inputs.
+                (정확성: 입력 값의 각 집합에 대해서 정확한 출력 값을 만들어야 한다.)
+            Finiteness: Won’t take forever to describe or run. (유한성)
+            Effectiveness: Individual steps are all do-able.
+                (효율성: 각 단계는 유한한 양의 시간에 수행되어야 한다.)
+            Generality: Works for many possible inputs.
+                (일반성: 특정한 입력이 아닌 모든 가능한 입력에 대해서 동작하여야 한다.)
+    Pseudocode Language
+        declaration(함수 선언 부분), statements 로 구성
+    procedure procname(arg: type)
+        Declares that the following text defines
+            a procedure named procname that takes
+            inputs (arguments) named arg which are
+            data objects of the type
+    variable := expression
+        An assignment statement evaluates the expression, then reassigns the variable to the value that results.
+        In pseudocode, the expression might be informal: –x := the largest integer in the list L
+    Informal Statement
+        Sometimes we may write an informal statement,\
+        if the meaning is still clear and precise: “swap x and y.”
+        Keep in mind that real programming languages never allow this.
+        (궁극적으로는 알고리즘을 쓰고 이를 구현해야 한다.)
+        When we ask for an algorithm to do so-and-so, writing “Do so-and-so” isn’t enough!
+            x를 찾는 알고리즘을 기술하라”했는데, “find x”라 하는 것은 충분치 않다!
+            Break down algorithm into detailed steps
+    begin-statements-end
+        Groups a sequence of statements together
+        Allows sequence to be used like a single statement.
+        Might be used:
+            After a procedure declaration.
+            In an if statement after then or else. (if condition begin statement end)
+            In the body of a for or while loop.
+    { comment }
+        Not executed (does nothing).
+        Natural-language text explaining some aspect of the procedure to human readers.
+        Also called a remark in some real programming languages.
+    If condition then statement
+        Evaluate the propositional expression condition.
+        If the resulting truth value is true, then execute the statement;
+        otherwise, just skip on ahead to the next statement.
+        Variant: if cond then stmt1 else stmt2
+            Like before, but iff truth value is false, executes stmt2.
+    while condition statement
+        Evaluate the propositional expression condition.
+        If the resulting value is true, then execute statement.
+        Continue repeating the above two actions over and over until finally the condition evaluates to false;
+        then go on to the next statement.
+        Also equivalent to infinite nested ifs.
+    for var := initial to final stmt
+        Initial is an integer expression.
+        Final is another integer expression.
+        Repeatedly execute stmt, first with variable var := initial, then with
+        var := initial+1, then with var := initial+2, etc., then finally with var := final.  
+        For can be exactly defined in terms of while
+    procedure(argument)
+        A procedure call statement invokes the named procedure,\
+        giving it as its input the value of the argument expression.
+        Various real programming languages refer to procedures as
+            functions (since the procedure call notation works similarly to function application f(x)), or as
+            subroutines, subprograms, or methods.
+    Max Procedure in Pseudocode
+        procedure max(a1, a2, ..., an: integers)
+            v := a1 {largest element so far}
+            for i := 2 to n {go thru rest of elems}
+                if ai > v then v := ai {found bigger?}
+            {at this point v’s value is the same as the largest integer in the list}
+            return v
+    Inventing an Algorithm
+        Requires a lot of creativity and intuition. Like writing proofs.
+        We can’t give you an algorithm for inventing algorithms. ust look at lots of examples. And practice.
+    Searching Algorithm
+        Problem of searching an ordered list.
+        (정렬된 리스트에서 주어진 값을 찾아내는 검색을 수행하는 문제)
+        Given a list L of n elements that are sorted into a definite order
+        (e.g., numeric, alphabetical),
+        And given a particular element x,
+        Determine whether x appears in the list,
+        and if so, return its index (position) in the list.
+        Problem occurs often in many contexts.
+        (여러 분이 Programming을 하는 한 수십 번 이상 마주치는 문제임!)
+    Linear Search
+        리스트의 첫 번째 원소부터 차례대로 검색하는 방법
+        Linear search는 ordered list(정렬된 상태)뿐 아니라 unordered list(정렬되지 않은 상태)에서도 바르게 동작한다.
+        procedure linear search
+        (x: integer, a1, a2, ..., an: distinct integers)
+            i := 1
+            while (i <= n & x != ai)
+                i := i + 1
+            if i <= n then location := i
+            else location := 0
+            return location {index or 0 if not found}
+    Binary Search
+        Basic idea: On each step, look at the middle element of the remaining list to eliminate half of it.
+        (리스트의 중간에 위치한 값과 비교하여,
+        작은 값들을 가지는 리스트 혹은 큰 값들을 가지는 리스트 중에서 한쪽 부분에 대해서만 검사를 진행한다)
+        Binary search는 ordered list(정렬된 상태)에서만 바르게 동작할 뿐\
+        unordered list(정렬되지 않은 상태)에서는 바르게 동작하지 않는다.
+        procedure binary search
+        (x:integer, a1, a2, ..., an: distinct integers)
+            i := 1 {left endpoint of search interval}
+            j := n {right endpoint of search interval}
+            while i<j begin {while interval has >1 item}
+                m := ⌊(i+j)/2⌋ {midpoint}
+                if x>am then i := m+1 else j := m
+            end
+            if x = ai then location := i else location := 0
+            return location
+    Sorting Algorithm
+        Sorting is a common operation in many applications.
+        (Programming을 하는 한 Search 다음으로 많이 마주치는 문제임!)
+        E.g. spreadsheets and databases
+        It is also widely used as a subroutine in other data-processing algorithms.
+        Two sorting algorithms shown in textbook:
+            Bubble sort
+            Insertion sort
+        There are more than 15 different sorting algorithms!
+        (“The Art of Computer Programming” by Donald Knuth.)
+    Bubble Sort – Algorithm
+        procedure bubble sort(a1, a2, ..., an: real numbers with n  2)
+            for i := 1 to n - 1
+                for j := 1 to n - i
+                    if aj > aj+1 then interchange aj and aj+1
+            {a1, a2, ..., an is in increasing order.}
+    Insertion Sort
+        procedure insertion sort(a1, a2, ..., an: real numbers with n  2)
+            for j := 2 to n
+                i := 1
+                while aj > ai {find a proper position of aj}
+                    i := i + 1
+                m := aj { m if for temporary storage}
+                for k := 0 to j – i – 1 {insert aj into the proper position}
+                    aj-k := aj-k-1 {interchange}
+                ai := m
+            {a1, a2, ..., an is in increasing order.}
+    Greedy Algorithm
+        Optimization problems minimize or maximize some parameter over all possible inputs.
+        Among the many optimization problems we will study are:
+        Finding a route between two cities with the smallest total mileage.
+        Determining how to encode messages using the fewest possible bits.
+        Finding the fiber links between network nodes using the least amount of fiber.
+        Optimization problems can often be solved using a greedy algorithm, which\
+        makes the “best” choice at each step.
+        Making the “best choice” at each step does not necessarily produce an optimal\
+        solution to the overall problem, but in many instances, it does.
+        알고리즘의 각 단계에서 최선을 선택을 수행하는 Greedy algorithm을 사용할 수 있음
+        많은 경우 Greedy algorithm은 최적의 솔루션을 제공함
+        After specifying what the “best choice” at each step is, we try to prove that
+        this approach always produces an optimal solution, or find a counterexample
+        to show that it does not.
+    ALGORITHM 7 Cashier’s Algorithm
+        procedure change(c1, c2, ..., cr: values of coins, where c1> c2> ... > cr ;
+        n: a positive integer)
+            for i := 1 to r
+                di := 0 [di counts the coins of denomination ci]
+                while n ≥ ci
+                    di := di + 1 [add a coin of denomination ci]
+                    n = n - ci
+            [di counts the coins ci]
+3.2 Growth of Functions
+
+3.3 Complexity of Algorithms

@@ -1,0 +1,26 @@
+상태관리
+
+BucketService 페이지 만들기
+
+import 'package:flutter/material.dart';
+
+import 'main.dart';
+
+/// Bucket 담당
+class BucketService extends ChangeNotifier {
+  List<Bucket> bucketList = [
+    Bucket('잠자기', false), // 더미(dummy) 데이터
+  ];
+}
+
+//ChangeNotifier를 상속 받은 경우 notifylisteners();를 호출하여 위젯들을 갱신하는 기능을 사용할 수 있습니다. 자세한 사용법은 뒤쪽에서 알아보도록 하겠습니다.
+
+//main.dart
+MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => BucketService()),
+      ],
+      child: const MyApp(),
+    ),
+
+

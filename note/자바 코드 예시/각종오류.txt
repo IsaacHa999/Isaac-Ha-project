@@ -1,0 +1,82 @@
+오류1
+    // bag.data를 하면 배열이 출력되는 것이 아니라 주소가 출력된다.
+    Solution: Arrays.toString()을 사용한다.!!
+    
+    System.out.println(bag.data[2]);
+    System.out.println(bag.manyItems);
+
+오류2 for문
+    // index를 for문 밖에서도 사용할 수 있다!
+    
+        int index; // The location of target in the data array.
+        // First, set index to the location of target in the data array,
+        // which could be as small as 0 or as large as manyItems-1; If target
+        // is not in the array, then index will be set equal to manyItems;
+        for (index = 0; (index < manyItems) && (target != data[index]); index++)
+            // No work is needed in the body of this for-loop.
+            ;
+        if (index == manyItems)
+            // The target was not found, so nothing is removed.
+            return false;
+        else
+        { // The target was found at data[index].
+            // So reduce manyItems by 1 and copy the last element onto data[index].
+            manyItems--;
+            data[index] = data[manyItems];
+            return true;
+        }
+
+오류3 == 과 String 리터럴
+    String str1 = "hello";
+    String str2 = "hello";
+    String str3 = new String("hello");
+
+    System.out.println(str1 == str2);  // true, 같은 문자열 리터럴을 가리킴
+    System.out.println(str1 == str3);  // false, 새로운 객체를 생성하여 다른 메모리 위치를 가리킴
+
+    System.out.println(str1.equals(str2));  // true, 내용이 같음
+    System.out.println(str1.equals(str3));  // true, 내용이 같음
+
+오류4 NullPointerException
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("인원수>>");
+        int count;
+        count = sc.nextInt();   //인원수 입력
+
+        Phone[] arrPhone = new Phone[count];
+
+
+
+        for (int i =0; i < 3; i++) {
+            System.out.print("이름과 전화번호(이름과 전화번호는 빈 칸 없이 입력)>>");
+            arrPhone[i].name = sc.next();   //에러
+            arrPhone[i].tel = sc.next();
+        }
+
+    }
+
+
+    public class PhoneBook {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("인원수>>");
+            int count = sc.nextInt();
+
+            Phone[] arrPhone = new Phone[count];
+
+            for (int i = 0; i < count; i++) {
+                System.out.print("이름과 전화번호(이름과 전화번호는 빈 칸 없이 입력)>>");
+                String name = sc.next();
+                String tel = sc.next();
+                arrPhone[i] = new Phone(name, tel);
+            }
+        }
+    }
+
+
+static error
+    ArrayList를 사용할 때 발생한 오류
+    Non-static method 'changeToNum(char)' cannot be referenced from a static context

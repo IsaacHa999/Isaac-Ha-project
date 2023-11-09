@@ -1,0 +1,100 @@
+<C언어 main함수 동작>
+우분투(WSL)
+
+리턴 자료형 :
+    int, float, char, _Bool 일 경우 :
+        return 0 : (해당 자료형 값이든 아니든 상관X) : 가능
+        return : warning
+        return문 없음 : 가능
+    void일 경우 :
+        return 0 : warning
+        return : 가능
+        return 없음 : 가능
+    없을 경우 :
+        return 0 : warning
+        return : warning
+        return 없음 :warning
+
+함수 입력 인자 : void든 없든 int든 float,float이든 다가능
+
+<printf, scanf 변환명세 오류>
+%d float : 쓰레기값
+%f int : 0.000000
+%d float 후 %f int : 쓰레기값 후 float
+%f int 후 %d float : 0.000000 후 쓰레기값
+
+%lld로 int : 잘 나옴?
+%d로 long long : int로 형변환 된 값이 나옴
+
+%f로 double에 입력받으면 안됨
+%lf로 float에 입력받으면 쓰레기값
+
+%f로 float에 입력받을 때 0x입력하면 16진수, 0입력하면 10진수
+숫자가 아닌 게 나오면 그 전까지의 숫자만 유효함, 그때 에러나서 다음입력 안받음
+
+
+<연산자 우선순위>
+
+++(후위) --(후위)
++(단항) -(단항) ++(전위) --(전위) (type-name) sizeof ! * & : 이것들만 우에서 좌
+* / %
++ -
+<< >>
+< > <= >=
+== !=
+&
+^
+|
+&&
+||
+?: : 이것들만 우에서 좌
+= += -+ *= /= %= : 이것들만 우에서 좌
+,
+
+
+<헤더>
+<ctype.h> char toupper(char)
+<iso646.h> #def not_eq !=, #def not !, #def and &&, #def or ||
+<stdbool.h> #def bool _Bool #def true 1 #def false 0
+<limits.h> SCHAR_?, CHAR_?, UCHAR_MAX, ...
+
+<트릭 목록>
+
+키워드
+    _Bool 키워드 주의
+
+서식문자
+    변환병세가 최종 자료형과 맞는지 항상 체크.
+    묵시적 형변환으로 변환명세가 자료형과 안 맞을 수 있다.
+    printf의 첫 번째 인자에서만 %%가 %로 출력된다.
+    %2f 시 float이 23.0이었다면 %f는 23.000000 이렇게 출력되므로 9자리이다.
+    9자리는 2보다 크니 그대로 출력.
+    %10f 시 9자리보다 10이 크니 10 - 9 = 1 만큼 띄어쓰기 후 출력.
+형변환
+    unsigned 와 int가 만나면 unsigned 우선. 이로인해 음수가 양수되는 것 주의.
+    삼항 연산자 ? (조건부 연산자)에서 뒤 두 값이 서로 묵시적 형변환 됨.
+    int보다 작은 정수형은 무조건 int로 형변환된다.
+    묵시적 형변환해서 수식을 그대로 쓰는게 아니라 변수에 대입해서 쓸 경우 오버플로도나고 컷당한다
+리터럴
+    2147483647까지는 int지만 그 뒤로는 8바이트라 sizeof시 8나온다.
+    이 리터럴 연산시 묵시적 형변환 주의
+    sizeof "123" 은 4LU임. (널 문자)
+    2.0 : double, 2.0f : float
+sizeof
+    sizeof는 뒤에 항 하나만 먹음, +등보다 우선순위가 낮다
+    sizeof의 리턴값은 long unsigned.
+if문
+    if뒤에 세미콜론 박으면 그게 if문 먹어버린다
+_Bool
+    _Bool에 0이 아닌 값을 저장하면 1이 됨
+    stdbool.h include 안하면 bool이랑 true false 못씀
+실수 비교
+    실수를 ==나 !=로 비교하면 정확하지 않을 수 있음
+연산자 우선순위
+    연산자 우선순위를 외우고, 모든 수식에서 우선순위를 따지자. 훼이크가 나올 수 있다
+형
+    void는 형이 없는 경우이다.
+세미콜론
+    세미콜론 찍었는지 주의해야 한다.
+
+

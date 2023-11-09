@@ -1,0 +1,237 @@
+002 명제 논리
+    명제 논리: 수학적 명제에 명확한 의미를 주는 것
+    명제(Proposition/statement) = 수학적 진술, T/F
+    복합 명제와 논리연산자(p,q)
+    논리연산자(=접속사)
+        not
+        and(Conjunction)
+        or(disjunction)
+        xor
+            진리표
+            !=
+        implies 함축 연산자
+            진리표 암기
+            동치 암기: ~p v q
+            충분조건과 필요조건
+            if의 표현 암기
+                if p, then q
+                p only if q
+                q when p
+                p is sufficiendt for q
+                q follows from p
+                q provided that p
+                한정자와 함께 사용되는 경우: Everyone in this discrete mathematics class has taken a course in computer science.
+
+        역(converse) 이(inverse) 대우(contra-positive)
+
+        iff 상호조건 연산자
+            if and only if
+            p, q가 동일한 진리 값일 때 (xor의 반대)
+            p <-> q == ~(p xor q) == (p->q) ^ (q->p)
+            표현
+                p iff q
+                p exactly when q
+
+        연산자 우선순위: and > or
+    
+    명제논리의 응용
+        명제논리의 번역: 논리 연산자 키워드 잘 찾기
+        일관성
+        논리회로
+    
+    명제의 동치
+        for 간소화, 진리값만 같으면 대체 가능
+        표현: <=>, 
+        특성: 항진명제(Tautology), 모순(Contradiction), 불확정명제(Contingency)
+        논리적 동치
+            //중요
+            p -> q
+            드 모르간 법칙
+
+            교환법칙, 결합법칙, 분배법칙
+
+            항등법칙: p 값
+            지배법칙: T/F 값
+            등멱볍칙: 2개 ->1개
+
+            흡수법칙
+                p v (p ^ q) == p
+                p ^ (p v q) == p
+    
+    술어와 한정기호
+        술어와 명제함수(명제변수 + 술어 ==> 명제함수)   //명제함수 p를 n-변수 술어라고도 한다.
+        한정자
+            명제함수를 명제로 만드는 방법 
+                1. 대입
+                2. 한정자
+            cf) 자연수는 0 포함, domain과 co-domain과
+        전칭한정
+            and 개념
+            반례를 중심으로
+        존재한정
+            or 개념
+        유일한정기호
+        
+        binding variables
+        부정의 한정자 적용
+        **한정자와 시스템 스펙: 굉장히 어려움!!!, 명제함수를 정의하는 것이 어렵다, if가 생략된 경우도 어려움 
+    
+    중첩된 한정기호
+        순서가 매우 중요하다!
+        교환법칙과 결합법칙이 성립한다!(같은 한정자인 경우)
+
+        //암기할 것!!(T/F 판단 문제)
+        모든 x에 대해서 적어도 한 개 P(x,y)를 ture로 하는 y가 존재하면, 해당 식은true가 된다.!!!
+        어떤 x에 대해 모든 y에 대해 P(x,y)가 ture이면, 해당식은 true가 된다.!!
+    
+    증명 방법
+            공리 --> 이론 --> 정리
+        개념 정의
+            정리(theorem)
+            공리(axiom)
+            추론 규칙
+            보조정리(lemma): 이미 증명된 명제, 그 자체 중시x 디딤돌
+            따름정리(corollary): 어떤 정리가 증명되면, 자연스럽게 증명되는 정리
+            가설(conjecture): 전문가의 직관에 극거한 참이라고 주장되어지는 명제
+            이론(theory): 공리로부터 증명이 가능한 모든 정리의 집합
+
+        argument
+        valid argument
+        명제논리 < 서술논리(명제논리 + 추론규칙)
+
+        추론규칙: 가정이 참일 때 결론이 참이라는 패턴, 조건문+항진명제이다
+            긍정논법
+            부정논법
+            가설적 삼단논법
+
+            //or
+            논리합 삼단논법
+            가산 논법
+
+            //and
+            단순화 논법
+            논리곱 논법
+
+            융해법
+
+        형식적 증명(formal proof)
+        
+        한정자를 포함하는 추론규칙
+            전칭 예시화(UI)
+            전칭 일반화(UG)
+            존재 예시화(EI)
+            존재 일반화
+        
+        암기) Everyone in this discrete matheatics cmlass has taken a course in computerscience.
+         Ax(D(x) -> C(x)) 조건문을 함축한다.!!
+
+    다른 증명방법( 판단이 어려운 경우 있음!)
+        Direct proof
+        Indirect proof
+        Vacuous proof: 가정이 false임을 증명하면 p -> q 는 true
+        Trivial proof
+        *Contradiction: 어렵다, 캘린더 문제
+        Proof by casies
+        proof by Equvalence: 항진명제 사용
+        *존재증명
+        *유일함 증명
+
+    가설
+        정의: 전문가의 직관
+        가설과 반례
+
+03 chapter
+    집합
+        집합의 정의
+            순서가 없다
+            중복이 없다
+        집합의 표현
+            원소나열법
+            *조건 제시법
+
+            범위 표현
+            
+        중요한 집합들
+            N
+            Z
+            Z+
+            Q
+            R
+            R+
+            C
+
+        공집합과 전체집합
+            공집합과 헷깔리는 성질 체크
+        부분집합과 집합의 상등
+            notation: 한정자로 표현하기
+            Power set: 진 부분집합
+
+            집합의 상등 notation
+                집합이 다른 경우: 1 != {1} != {{1}}
+        집합의 개수: Cardinality, 관계성
+
+        튜플
+            정의: 순서가 중요하다
+
+            데카르트 곱
+                교환법칙이 성립하지 않는다!
+        
+        진리집합:
+            명제 P가 참이 되게하는 domain의 요소의 집합
+
+        집합의 연산자
+            합
+            곱
+            서로소
+            여집합
+            차집합
+            대칭차집합
+
+            합집합의 개수: 포함배제원리
+            기타 집합의 연산법칙(교환 등등)
+        
+        집합의 중명
+            case 증명
+            드 모르간 증명(불 대수 법칙?)
+            진리표 증명
+        
+        일반화된 합집합과 교집합
+
+        비트표현?
+
+    함수
+        용어정리
+            domain
+            codomain
+            image
+            pre-image
+            range
+
+        Injections: one to one functions , notation
+
+    행렬
+
+    알고리즘
+        알고리즘
+            컴퓨팅적 사고
+                문제정의
+                일반화
+                절차적 해결
+            
+        알고리즘의 속성
+            input
+            ouput
+            process
+                각 과정이 정확하게 정의
+                유한한 숫자 내에서 표현
+        수도코드
+            변수 할당 표현
+            bigin end
+            coments
+            if cond then statement
+            loop 표현: while   
+        알고리즘 예
+            max: 수도코드 암기
+            탐색 알고리즘
+            정렬 알고리즘
+            그리디 알고리즘

@@ -1,0 +1,56 @@
+1 주차
+    1. Vector vs Scalar
+        Direction
+        Length: 절댓값 ||v|| = 루트(v^+v^)
+    2. Vector operations
+        덧셈
+        뺄셈
+        상수곱
+        내적
+            코사인으로 정의
+            행렬로 정의
+            스칼라 값!
+            부호의 의미(각도,방향)
+    3. 직선/평면 그리기
+        직선//평면 그리기
+        법선벡터의 방향 찾기
+        점의 위치 판단
+    4. 일차 결합
+        표현
+        평면/직선/제로벡터
+
+    5. 문제
+        제2 코사인 법칙
+        직선의 표현법 3가지
+            대칭방정식
+            집합의 표현
+            vector의 표현
+
+
+2 주차 : n x n 행렬에 대해서 가우스 소거법과 LU분해를 한다./ AX = B를 가우스 소거법으로 푼다.
+    Solving Matrix equation == 방정식의 해를 구한다.
+    Matrix 곱셈
+    Row picture vs Column picture
+        Row picture은 (n-1)차원 평면 n개 의 교점 구하기
+        Column picture은 n개 벡터의 합이 특정한 벡터 B가 되는 n개의 미지수 xi 찾기
+    가우스 소거법
+        시간복잡도 O(n^3)
+    LU 분해
+
+3장
+    행바꿈
+    역행렬
+        역행렬 존래 ==> 가우스 소거법 성공(n개의 pivot 존재!)
+        AX = B, 역행렬 존재 ==> 유일한 해!
+        AX = B, 열행렬 존재X ==> 해가 없거나 무한히 많다!
+        AX = 0, 역행렬 존재 ==> X =0 이 유일한 해!
+        AX = 0, AX = 0 만족하는 X 존재 ==> 역행렬은 존재X
+    벡터공간
+
+4장: vector Space 
+    10가지 조건
+
+5장: 
+    부분공간과 벡터 공간
+    Column Space
+    Null Sapce

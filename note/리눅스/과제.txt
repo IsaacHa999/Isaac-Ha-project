@@ -1,0 +1,313 @@
+
+변수를 여러개 
+문자로 하나씩 하나씩 읽어서 풀어야 한다.
+unsigned long long을 넘어간다
+
+
+
+var0
+var1
+
+
+// 숫자로 변환
+int num = 0;
+char c = getchar();
+
+while (c != '\n') { // 입력 종료 문자인 개행 문자(\n)가 나올 때까지 반복
+    num = num * 10 + (c - '0'); // 문자를 숫자로 변환하여 num에 더함
+    c = getchar(); // 다음 문자를 읽음
+}
+
+printf("입력한 정수: %d\n", num);
+
+
+// 숫자로
+char c = '3';
+int num = c - '0'; // num = 3
+
+
+// char
+int num = 5; // 예시로 5를 문자로 변환하는 코드
+char ch = '0' + num; // 숫자 5의 ASCII 코드인 53에 '0'의 ASCII 코드 48을 더해서 '5'를 얻음
+
+%c로 읽을 수 있음!
+
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+#define MAX_DIGITS 30
+
+int main() {
+    char input_str[2 * MAX_DIGITS + 3]; // 덧셈식 문자열
+    char* num1_str, * num2_str; // 피연산자 문자열
+    int num1[MAX_DIGITS] = { 0 }, num2[MAX_DIGITS] = { 0 }, result[MAX_DIGITS + 1] = { 0 }; // 정수 배열
+    int len1, len2, len_res, carry = 0; // 자릿수, 올림수
+
+    while (1) {
+        // 사용자 입력 받기
+        printf("두 정수를 입력하세요. (예: 123456789012345678901234567890 + 987654321098765432109876543210)\n");
+        fgets(input_str, sizeof(input_str), stdin);
+
+        // 입력 문자열에서 더하기 연산자의 위치 찾기
+        char* plus_pos = strchr(input_str, '+');
+        if (plus_pos == NULL) {
+            printf("입력이 잘못되었습니다. 더하기 연산자가 없습니다.\n");
+            continue;
+        }
+
+        // 피연산자 추출
+        num1_str = input_str;
+        while (isspace(*num1_str)) { num1_str++; } // 공백 문자 스킵
+        len1 = (int)(plus_pos - num1_str);
+        while (isspace(num1_str[len1 - 1])) { len1--; } // 공백 문자 스킵
+        if (len1 > MAX_DIGITS) {
+            printf("입력이 잘못되었습니다. 첫 번째 정수가 %d자리보다 큽니다.\n", MAX_DIGITS);
+            continue;
+        }
+        strncpy(input_str + len1 + 1, plus_pos + 1, sizeof(input_str) - len1 - 1); // 두 번째 문자열 복사
+        input_str[len1 + 1 + strlen(plus_pos + 1)] = '\0'; // 문자열 종료
+        num2_str = input_str + len1 + 1;
+        while (isspace(*num2_str)) { num2_str++; } // 공백 문자 스킵
+        len2 = strlen(num2_str);
+        while (len2 > 0 && isspace(num2_str[len2 - 1])) { len2--; } // 공백 문자 스킵
+        if (len2 > MAX_DIGITS) {
+            printf("입력이 잘못되었습니다. 두 번째 정수가 %d자리보다 큽니다.\n", MAX_DIGITS);
+            continue;
+        }
+
+        // 피연산자 검증
+        for (int i = 0; i < len1; i++) {
+            if (!isdigit(num1_str[i])) {
+                printf("입력이 잘못되었습니다. 첫 번째 정수가 정수가 아닙니다.\n");
+                goto loop_continue;
+            }
+            num1[MAX_DIGITS - len1 + i] = num1_str[i] - '0';
+        }
+        for (int i = 0; i < len2; i++) {
+            if (!isdigit(num2_str[i])) {
+                printf("입력이 잘못되었습니다. 두 번째 정수가 정수가 아닙니다.\n");
+                goto loop_continue;
+            }
+            num2[MAX_DIGITS - len2 + i] = num2_str[i] - '0';
+        }
+
+        // 덧셈 수행
+        len_res = (len1 > len2 ? len1 : len2) + 1;
+        for (int i = MAX_DIGITS - 1; i >= MAX_DIGITS - len_res; i--) {
+            result[i] = num1[i] + num2[i] + carry;
+            carry = result[i] / 10;
+            result[i] %= 10;
+        }
+        if (carry != 0) {
+            printf("오버플로우가 발생했습니다.\n");
+            goto loop_continue;
+        }
+
+        // 결과 출력
+        printf("결과: ");
+        int count = 0;
+        for (int i = 0; i < MAX_DIGITS; i++) {
+            if (result[i] != 0 || i == MAX_DIGITS - 1) { // 첫 자리 수가 0이 아니거나 마지막 자리인 경우 출력
+                printf("%d", result[i]);
+                count++;
+            }
+            if (count % 3 == MAX_DIGITS % 3 && i < MAX_DIGITS - 1) { // 세 자리마다 콤마 출력
+                printf(",");
+            }
+        }
+        printf("\n");
+
+        // 계속 진행할 지 묻기
+    loop_continue:
+        printf("계속 하시겠습니까? (y/n) ");
+        char answer[2];
+        fgets(answer, sizeof(answer), stdin);
+        if (tolower(answer[0]) == 'n') {
+            break;
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char choice = 'y';
+    while (tolower(choice) == 'y') {
+        // 입력 받은 수식에서 피연산자를 읽어온다
+        long long a = 0, b = 0;
+        char op;
+        scanf("%lld %c %lld", &a, &op, &b);
+        
+        // 계산을 수행한다
+        long long result = 0;
+        if (op == '+') {
+            result = a + b;
+        } else {
+            printf("잘못된 연산자입니다.\n");
+            continue;
+        }
+        
+        // 결과를 출력한다
+        if (result >= 1000000000000000000) {
+            printf("오버플로우가 발생했습니다.\n");
+        } else {
+            printf("결과 : ");
+            if (result < 0) {
+                printf("-");
+                result = -result;
+            }
+            int count = 0;
+            char comma[4] = ",000";
+            while (result > 0) {
+                if (count == 3) {
+                    printf("%s", comma);
+                    count = 0;
+                }
+                printf("%lld", result % 10);
+                result /= 10;
+                count++;
+            }
+            if (count == 0) {
+                printf("0");
+            }
+            printf("\n");
+        }
+        
+        // 계속할지 여부를 묻는다
+        printf("계속 하시겠습니까? ");
+        scanf(" %c", &choice);
+    }
+    return 0;
+}
+
+#include<stdio.h>
+
+unsigned long long x1, x0, q1, q0, tmp;
+
+int main(void) {
+    char c = getchar();
+    while (c == ' ') c = getchar();
+    while ('0' <= c && c <= '9') {
+        q1 = x1;
+        q0 = x0;
+        for (int i = 0; i < 9; ++i) {
+            tmp = x0;
+            x0 += q0;
+            x1 += q1;
+            if (x0 < tmp) x1++;
+        }
+        q1 = 0;
+        q0 = c - '0';
+        
+        tmp = x0;
+        x0 += q0;
+        x1 += q1;
+        if (x0 < tmp) x1++;
+
+        c = getchar();
+    }
+    unsigned long long a1 = x1;
+    unsigned long long a0 = x0;
+    int to_minus = 0;
+    while (c == ' ') c = getchar();
+    if (c == '-') to_minus = 1;
+    c = getchar();
+    while (c == ' ') c = getchar();
+    x1 = x0 = 0;
+    while ('0' <= c && c <= '9') {
+        q1 = x1;
+        q0 = x0;
+        for (int i = 0; i < 9; ++i) {
+            tmp = x0;
+            x0 += q0;
+            x1 += q1;
+            if (x0 < tmp) x1++;   
+        }
+        q1 = 0;
+        q0 = c - '0';
+        
+        tmp = x0;
+        x0 += q0;
+        x1 += q1;
+        if (x0 < tmp) x1++;
+
+        c = getchar();
+    }
+    q1 = a1;
+    q0 = a0;
+    if (to_minus) {
+       x1 = 1 - x1;
+       x0 = 1 - x0;
+       if (++x0 == 0) x1++; 
+    }
+
+    tmp = x0;
+    x0 += q0;
+    x1 += q1;
+    if (x0 < tmp) x1++;
+
+    if (x1 >= 9223372036854775808ULL) {
+        putchar('-');
+        x1 = 1 - x1;
+        x0 = 1 - x0;
+        if (++x0 == 0) x1++;
+    }
+    int i = 0;
+    unsigned long long r3, r2, r1, r0;
+    r3 = r2 = r1 = r0 = 0;
+    if (x0 == 0 && x1 == 0) r0 = '0', i = 1;
+    else do {
+        unsigned long long rem1 = x1 % 10;
+        unsigned long long rem0 = x0 % 10;
+        x1 /= 10;
+        x0 /= 10;
+        x0 += rem1 * 1844674407370955161ULL;
+        unsigned long long rem = rem1 * 6 + rem0;
+        q1 = 0;
+        q0 = rem / 10;
+
+        tmp = x0;
+        x0 += q0;
+        x1 += q1;
+        if (x0 < tmp) x1++;
+
+        unsigned long long resc = rem % 10 + '0';
+        int isel = i / 8;
+        int irem = i % 8;
+        for (int j = 0; j < irem; ++j) resc *= 256;
+        if (isel == 0) r0 += resc;
+        if (isel == 1) r1 += resc;
+        if (isel == 2) r2 += resc;
+        if (isel == 3) r3 += resc;
+        ++i;
+    } while (x0 != 0 || x1 != 0);
+
+    while (i--) {
+        unsigned long long num;
+        int isel = i / 8;
+        int irem = i % 8;
+        if (isel == 3) num = r3;
+        if (isel == 2) num = r2;
+        if (isel == 1) num = r1;
+        if (isel == 0) num = r0;
+        for (int j = 0; j < irem; ++j) num /= 256;
+        putchar(num);
+        if (i != 0 && i % 3 == 0) putchar(',');
+    }
+    putchar('\n');
+}

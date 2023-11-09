@@ -1,0 +1,12 @@
+
+                ListTile(
+                  onTap: () {
+                    if (user != null) {
+                      user.updateDisplayName("issac Ha");
+                    }
+                    print("닉네임변경디버깅");
+                    print(user?.displayName);
+                    
+                  },
+                  title: Text("test 닉네임 변경 디버깅"),
+                ),

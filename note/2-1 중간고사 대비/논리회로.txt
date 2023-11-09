@@ -1,0 +1,95 @@
+1장 introduction
+    cmos 기술: pmos nmos
+
+
+2장 조합 논리회로
+    1.논리함수: 진리표와 게이트
+    2.불대수 법칙
+        교환 법칙
+        결합 법칙
+        분배 법칙
+        드 모르간 법칙
+
+        항등법칙
+            A+0=A
+            A1 = A
+        보수 법칙
+            A + A' = 1
+            AA' = 0
+        동일성 법칙
+            A+A=A
+            AA=A
+        
+        흡수 법칙
+            A+AB=A
+        동의 법칙
+            AB+BC+A'C = AB+A'C
+
+        //증명: 불대수, 진리표, Sop
+        쌍대성(daul)
+    3. 게이트
+    게이트의 여러 형태
+    파형
+    4. Sop & Pos
+
+    5. 간소화: 
+        uniting theorem
+        카르노맵
+    
+3장 
+    cf 조합논리회로 종류
+        가산기
+        비교기
+        디코더
+        인코더
+        멀티플렉서
+        디멀티플레서
+        코드 변화기
+        패리티 발생기/컴출기
+    2비트 비교기
+    2x2 곱셈기
+    BCD increment by 1(숫자 1 더하기)
+
+    간소화 이론
+        implicant:  단순
+        Prime Impormation: 가장 크게 묶어라
+        Essential Prime implicant: 반드시 포함, 중복x , 최적의 방식
+
+    pos와 sop (two-level logic)
+        nand로만 구성 가능! ==> bubble 옮기기
+        nor로만 구성 가능!
+        nad nor 섞어서 구성 가능!
+        
+        not을 nand로만/nor로만 표현
+        xor을 ~
+
+    언어적 설계(HDLs)
+    Verilog
+
+    퀸 맥클러스키 방식
+
+    cf divice circuit gate module system
+
+4장
+    Regular logic   
+        멀티플레서/이코더
+        RMOs
+        PLAs/PALs
+
+    멀티플랙서(==data selector)
+        4-1
+        스위치 작용
+
+        게이트로 멀티플랙서 구현하기
+        cascading myltiplexers: 8:1 mux --> 2:1 4개, 4:1 1개로 변환!!
+        and와 or가 없는 경우 mux로 구현가능:
+
+    demultiplexers/ decoders
+        게이트 레벨 구현
+        1:2 decoders
+        2:4 decoders
+    
+    PLAs :로직 배열
+    PALs : OR에 제약조건!!
+
+    Tri-state

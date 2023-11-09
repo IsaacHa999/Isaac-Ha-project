@@ -1,12 +1,11 @@
 alist = []
 
-for i in range(1,10):
+for i in range(28):
     k = int(input())
     alist.append(k)
 
 alist.sort()
-print(alist)
 
-for i in range(1,10):
+for i in range(1,31):
     if i  not in alist:
         print(i)

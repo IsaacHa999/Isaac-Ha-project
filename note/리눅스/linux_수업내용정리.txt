@@ -1,0 +1,274 @@
+리눅스 명령어
+
+색 판단
+    초록색: 실행프로그램
+    흰색: 파일
+    파랑: 디렉터리
+
+man [section] name
+    1   사용자 명령어
+    2   시스템 콜
+    3   C 라이브러리 함수
+
+cat [option] [file]
+    -b : 
+    -n : 빈 줄도 번호 매기기
+    cat > student
+    James Kim
+    James Bond --> ^d
+
+    cat student //열람
+
+디렉터리
+    /
+    .
+    ..
+    ~
+
+경로
+    홈 디렉토리 /home/user/isaac 
+    절대경로
+        /home/kmh/project/cal.c
+    상대경로
+        ../kmh/project/cal.c
+
+ls [option] [file]
+    -a: 모든 파일 보기
+    -l: 자세히 보기
+
+pwd
+
+cd [option] [path]
+    cd
+    cd ~
+    cd project
+
+cp [option] A B
+    -r  디텍터리 복사
+
+mkdir [option] directory
+
+rm [option] file
+    -r: 디렉터리 삭제
+
+    rm test
+    rm -r temp
+    rm *
+    rm *.txt
+
+mv [option] file file //파일 이동 or 이름변경
+mv [option] file directory
+    mv boy girl
+    mv boy /home/heaven
+
+touch [option] file
+    수정 시간을 혅 시간으로 변경
+    0 바이트인 파일을 생성
+
+vi
+    vi들어가기: vi 파일명
+    vi 단축키 암기!!
+    명령모드 VS 입력모드
+    커서 이동 명령:
+        0 vs $
+        G  숫자 G
+    페이지 단위 이동 명령
+        H
+        M
+        L
+        ctrl
+    블록 지정
+    삭제: 
+        x
+        dd
+        dw/d0/d$=D/dG
+        :<block>d    1,3d    1,$-3d     현재 줄 . 파일에서 마지막 줄 $
+
+    복사명령
+        yy
+        p
+        yw/y0/y$/yG
+        :<block> y      :1,6 y
+        :<block> co num     :1,6 co 10
+    
+    수정명령
+        r: 문자 하자 수정
+        R: 커서부터 덮어쓰기
+        cc: 한 줄 삭제후 그대로 덮어쓰기!(입력모드 자동으로 들어감)
+        cw/cc/c0/c$     #삭제후 자동으로 입력모드 들어감!
+
+    문자열 찾기 및 변황
+        /string
+        ?string
+
+        :s/string1/string2  1개
+        :%s/sting1/string2/g  모든
+        :<block>s/string1/string2   범위지정
+        etc
+    
+    기타 명령
+    J
+    u
+    :set nu
+    :set nonu
+
+    환경설정
+    .vimrc
+
+    컴파일러(gcc)
+        gcc hello.c
+        gcc hello.c -o my_program
+        ./a.out
+        a.out   # .profile에 PATH 추가
+
+1장
+    vi, gcc, gdb(디버거)
+
+    컴파일
+        gcc hello.c
+        gcc hello..c -o 저장이름
+
+    printf  
+        %로 시작하는 것을 면환 명세라고 함
+        d는 변환 문자라고 함
+        --> %d
+
+2장
+    구문: 컴파일러, 전처리기
+    토큰: 키워드, 식벽자, 상수, 문자열 상수, 구두자(?)
+    주석문: // /* */
+    키워드 종류
+    식별자 규칙
+        변수, 함수, 태그, 레이블 등을 식별
+        _ 가능
+
+    상수
+        정수 상수
+            10진 정수 상수
+            16진 정수 상수
+                변환명세: %x %#x
+            8진 정수 상수
+                변환명세: %o  %#o
+
+            정수 변환
+                2진수에서 다른 진법으로 변환은 쉽다!! 4비트씩 쪼개거나 3비트로 쪼갠다
+                다른 진수에서 10진수로 바꾸는 것도 쉽다. 
+
+                10진수를 다른 진수로 나타내기 ---> 계속 나눈다
+                
+        부동형 상수
+            변환문자: 
+            f e(지수) a(16진수)
+
+        문자 상수
+            이스케이프 
+                문자열 내에서 작동: '\a' 는 삑
+                \'
+                \\
+                %%
+
+                \b
+        문자열 상수
+            "a" vs 'a'
+        열거 상수
+
+        상수는 값과 형을 가짐
+
+        구두자
+            [] () {} . - >
+            ++ -- & * + -~ !
+            / % << >> < > != ^ && \\
+            , # 등등등
+
+3장 자료형
+    정수형
+        short(2)   %hd                  3만     
+        int(4)      %d %x %o            21억
+        long(8)    %ld %lx %lo          922경
+        long long(8)   %lld %llx %llo   922경
+
+        unsigned short  %hu
+        unsigned        %u %x %o
+        unsigned long   %lu %lx %lo
+        unsigned long long %llu
+
+        접미사 종류: 
+            기본값이 int 형이므로 21억을 넘어가는 숫자는 ㅣ을 붙여야 한다.!!
+            u    
+            L   ul
+            ll  ull
+                    
+    수식과 문장
+
+    배정연산자
+    산술연산자
+        %는 정수만
+    증감연산자
+    복합배정연산자
+
+    연산자 우선순위
+
+    정수 
+        2진수
+    아스키 코드 값
+        0 = 48
+        A 65
+        a = 97
+    
+    문자
+        문자 상수는 char 형이 아니라 int 형이다.!
+    char 자료형
+
+    논리값과 _Bool 형
+    #include <stdbool.h>
+
+    bool a,b,c;
+    a = true'
+    b = false;
+
+    실수를
+        정밀도
+        float : 6
+        dlouble : 15자리
+
+        float(4)   %f %e %g(유효숫자) %a(16진수)
+        double(8)  %f %e %g %a
+        long double(16)     %Lf, %Le, %lg
+
+        scanf: double은 %lf!!
+
+        접미사 
+        float f
+        
+        long double L
+
+    sizeof 연산자
+
+    정수승격
+    자동형변환
+        자료형 큰 쪽
+        unsigned > signed
+
+    캐스트
+        잘못된 캐스트 
+        (doutble) quarter = 2.5;
+
+4장
+    단축평가
+    연산자 우선순위
+        후위
+        단항, 전위
+        곱 몫 나
+        덧 뺄
+        >
+        ==
+        &&
+        \\
+        복합
+
+    if문
+    복합문
+    (0 < math <= 100) 의 동작 
+    조건부 연산자
+        수식의 자료형은 크기가 더 큰 자료형!!
+
