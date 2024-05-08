@@ -1,0 +1,5 @@
+int(data)
+float(data)
+str(data)
+chr(data)
+bool(data)

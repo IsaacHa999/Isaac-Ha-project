@@ -1,0 +1,23 @@
+1. 선언
+    vector<int> A;
+    vector<int> A(10,0);
+2. 이터레이터   // vector에서는 인덱스 비슷하게 생각, 리스트에서는 포인터로 생각???
+    auto it = A.begin();
+    distance(A.begin(), it);    // 인덱스
+3. 메서드  
+    #1 삽입                         1 2 3 4
+        A.push_back(10);            1 2 3 4 10
+        A.insert(A.end(),12);       1 2 3 4 12
+    #2 삭제
+        A.pop_back();
+        A.erase(A.end()-1);
+        A.clear();
+    #3 조회
+        A.front()
+        A.back()
+        A.size()
+4. 기타 메서드  // 템플릿, .... 
+    fill(A.begin(), A.end(), 0);
+    max_element(A.begin(), A.end());
+    reverse(A.begin(), A.end());
+    auto it = find(A.begin(), A.end(), 3);

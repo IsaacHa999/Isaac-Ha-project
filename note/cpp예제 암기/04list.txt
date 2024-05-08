@@ -1,0 +1,19 @@
+1. 선언
+    list<int> L
+
+2. 이터레이터   
+    iterator it = L.begin()
+    cout << *it;
+
+    출력
+    for (quto it : L) 
+        cout << *it << ' ';
+        
+3. 메서드   
+    list<int>::iterator t = L.begin(); // t는 1을 가리키는 중
+    L.push_back()
+    L.push_front()
+    L.delete()      // t가 가리키는 값을 제거, 그 다음 원소인 5의 위치를 반환
+    L.insert()      // t가 가리키는 곳 앞에 6을 삽입
+
+4. 주의 사항
