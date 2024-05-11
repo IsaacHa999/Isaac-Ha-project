@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     // 선언
-    vector<int> A; // 1차원 벡터 선언
+    vector<int> A; // 1차원 벡터 선언, 괄호 없음
     // vector<vector<int>> D(N + 1, vector<int>(N + 1, 0)); // 2차원 벡터 선언
 
     // 초기화

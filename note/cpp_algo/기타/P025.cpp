@@ -9,7 +9,7 @@
 
 using namespace std;
 
-static vector<vector <int>> A;
+static vector<vector<int>> A;
 static vector<bool> visited;
 static bool arrive;
 void DFS(int now, int depth);
@@ -26,39 +26,48 @@ int main()
     A.resize(N);
     visited = vector<bool>(N, false);
 
-    for (int i = 0; i < M; i++) {
+    for (int i = 0; i < M; i++)
+    {
         int s, e;
         cin >> s >> e;
         A[s].push_back(e);
         A[e].push_back(s);
     }
 
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
+    {
         DFS(i, 1);
-        if (arrive) {
+        if (arrive)
+        {
             break;
         }
     }
 
-    if (arrive) {
+    if (arrive)
+    {
         cout << 1 << "\n";
     }
-    else {
+    else
+    {
         cout << 0 << "\n";
     }
 }
 
-void DFS(int now, int depth) {
-    if (depth == 5 || arrive) {
+void DFS(int now, int depth)
+{
+    if (depth == 5 || arrive)
+    {
         arrive = true;
         return;
     }
     visited[now] = true;
 
-    for (int i : A[now]) {
-        if (!visited[i]) {
+    for (int i : A[now])
+    {
+        if (!visited[i])
+        {
             DFS(i, depth + 1);
         }
     }
-    visited[now] = false;
+    visited[now] = false; // 이유: 다른 경로로 방문할 수 있도록
 }
