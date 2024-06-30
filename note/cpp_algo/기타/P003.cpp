@@ -11,15 +11,17 @@ int main()
 
     int suNo, quizNo;
     cin >> suNo >> quizNo;
-    int S[100001] = {};
+    int S[100001] = {}; // S[i] = S[0] + S[1] + ... + S[i]
 
-    for (int i = 1; i <= suNo; i++) {
+    for (int i = 1; i <= suNo; i++)
+    {
         int temp;
         cin >> temp;
-        S[i] = S[i-1] + temp;
+        S[i] = S[i - 1] + temp; // S[i] = S[0] + S[1] + ... + S[i]
     }
-    for (int i = 0; i < quizNo; i++) {
-        int start , end;
+    for (int i = 0; i < quizNo; i++)
+    {
+        int start, end;
         cin >> start >> end;
         cout << S[end] - S[start] << "\n";
     }

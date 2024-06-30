@@ -13,7 +13,7 @@ int main()
     }
 
     long sum = 0;
-    long max = 0; 
+    long max = 0;   // int로 선언하면 오답이 나올 수 있음
 
     for (int i = 0; i < N; i++) {
         if (A[i] > max) {

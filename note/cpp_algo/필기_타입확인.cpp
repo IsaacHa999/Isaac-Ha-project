@@ -13,3 +13,10 @@ int main()
 	std::cout << "double : " << typeid(d).name() << std::endl;
 	std::cout << "bool : " << typeid(b).name() << std::endl;
 }
+
+/* 출력결과
+int : i
+float : f
+double : d
+bool : b
+*/
