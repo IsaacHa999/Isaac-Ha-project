@@ -7,8 +7,8 @@ cin 관련 함수
 - cin.get(), cin.get(c) // 문자 입력받기
 - cin.putback(), cin.putback(c) // 문자 되돌리기
 - cin.peek()    // 문자 하나 읽기
-- cin.sync()    
-- cin.tie() 
+- cin.sync()
+- cin.tie()
 - cin.rdbuf()
 - cin.getloc()
 - cin.setstate()
@@ -18,7 +18,7 @@ cin 관련 함수
 - cin.width(), cin.fill(), cin.precision()
 
 cout 관련 함수
-- cout.put(), cout.write()  
+- cout.put(), cout.write()
 - cout.flush()
 - cout.tie()
 - cout.rdbuf()
@@ -43,6 +43,9 @@ cout 관련 함수
 - cin.getloc(); // 로케일 가져오기
 - cin.setstate(); // 스트림 상태 설정하기
 - cin.rdstate(); // 스트림 상태 가져오기
+
+// 입력 데이터의 길이를 모를 때, 입력받는 방법
+
 
 */
 

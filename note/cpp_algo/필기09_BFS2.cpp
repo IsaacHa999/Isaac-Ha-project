@@ -29,6 +29,7 @@ int main(void)
     vis[0][0] = 1;  // (0, 0)을 방문했다고 명시
     Q.push({0, 0}); // 큐에 시작점인 (0, 0)을 삽입.
 
+    // BFS 과정
     while (!Q.empty())
     {
         pair<int, int> cur = Q.front();

@@ -41,12 +41,20 @@ int main()
     A.begin(); // 첫번째 원소의 이터레이터 반환
     A.end();   // 마지막 원소의 다음 원소의 이터레이터 반환
 
+    // 탐색
+    A.empty();
+    find(A.begin(), A.end(), 3);  // 찾는 값의 이터레이터 반환 : A.end()의 이터레이터 반환
+    count(A.begin(), A.end(), 3); // 찾는 값의 개수 반환
+    // A.lower_bound(3);             // 찾는 값 이상의 값 중 가장 작은 값의 이터레이터 반환
+    // A.upper_bound(3);             // 찾는 값 초과의 값 중 가장 작은 값의 이터레이터 반환
+
     // 기타
     fill(A.begin(), A.end(), false);
     max_element(A.begin(), A.end()); // 반환값   포인터
     sort(A.begin(), A.end());
     reverse(A.begin(), A.begin());
 
+    // 원하는 값의 인덱스 찾기
     auto iter = find(A.begin(), A.end(), 3); // find()? 찾는 값의 이터레이터 반환 : A.end()의 이터레이터 반환
     int num = distance(A.begin(), iter);     // iter가 A.begin()부터 몇 번째인지 반환(== 인덱스와 동일)
 
